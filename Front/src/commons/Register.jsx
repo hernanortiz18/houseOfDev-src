@@ -37,52 +37,51 @@ const Register = () => {
 
   return (
     <form onSubmit={handleSubmit} className="formRegister">
-      <label htmlFor="name">Name</label>
       <input
         value={registerData.name}
         type="text"
         name="name"
-        placeholder="name"
+        placeholder="Name"
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="lastName">Last name</label>
+
       <input
         value={registerData.lastName}
         type="text"
         name="lastName"
-        placeholder="lastName"
+        placeholder="Last name"
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="phone">phone</label>
+
       <input
         value={registerData.phone}
         type="text"
         name="phone"
-        placeholder="phone"
+        placeholder="Phone"
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="email">email</label>
+
       <input
         value={registerData.email}
         type="text"
         name="email"
-        placeholder="email"
+        placeholder="E-mail"
         onChange={handleChange}
       />
       <br />
-      <label htmlFor="password">Password</label>
+
       <input
         value={registerData.password}
         type="password"
         name="password"
-        placeholder="password"
+        placeholder="Password"
         onChange={handleChange}
       />
       <br />
-      <input type="submit" />
+      <button type="submit">Register</button>
     </form>
   );
 };

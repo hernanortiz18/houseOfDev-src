@@ -1,0 +1,18 @@
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+  background-color: #333;
+  padding: 17px;
+  border-radius: 8px;
+
+  input {
+    border-radius: 999px;
+    padding: 5px;
+    text-align: center;
+  }
+  button {
+    border-radius: 999px;
+    border: solid 2px #000;
+  }
+}
