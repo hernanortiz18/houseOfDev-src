@@ -6,7 +6,6 @@ import imagenDos from "../assets/img/Group179.png";
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
 function Home() {
   useEffect(() => {
     axios
@@ -18,7 +17,6 @@ function Home() {
   }, []);
   console.log("hola");
   return (
-
     <div className="container-fluid h-100 text-center p-0">
       <div className="row h-100 m-0">
         <div className="col d-flex align-items-center justify-content-center p-0">
@@ -28,7 +26,6 @@ function Home() {
         </div>
       </div>
     </div>
-
   );
 }
 
