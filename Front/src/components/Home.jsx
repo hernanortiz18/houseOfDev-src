@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
+import imagen from "../assets/img/Group179.png";
+
 function Home() {
   useEffect(() => {
     axios
@@ -15,6 +17,7 @@ function Home() {
       <div>
         <div>House of Dev</div>
         <p>Tu nueva vivienda está aqui</p>
+        <img src={imagen} alt="imagen" />
       </div>
     </>
   );
