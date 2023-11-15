@@ -14,7 +14,7 @@ function Home() {
         console.log(error);
       });
   }, []);
-
+  console.log("hola");
   return (
     <div className="container-fluid h-100 text-center p-0">
       <div className="row h-100 m-0">
