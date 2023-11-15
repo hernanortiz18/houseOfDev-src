@@ -10,45 +10,46 @@
     background-size: 100% 100%;
     background-repeat: no-repeat;
   }
-}
-.register-container {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  margin-right: 300px;
-  border: solid 1px #123ac8;
-  .logoHod {
-    margin: 0;
-    width: 350px;
-  }
-  .formRegister {
-    margin-top: 0;
-    width: 330px;
+  .register-container {
     display: flex;
     flex-direction: column;
-    background-color: #f7f3ee;
-    padding: 10px;
-
-    input {
-      font-family: "Montserrat", sans-serif;
+    width: 350px;
+    height: 700px;
+    margin-right: 300px;
+    border: solid 1px #123ac8;
+    .logoHod {
+      margin: 0;
+      width: 350px;
+    }
+    .formRegister {
+      margin-top: 0;
+      width: 330px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f7f3ee;
       padding: 10px;
-      margin: 3px;
-      font-size: 12px;
-      border: solid 1px #123ac8;
-      border-radius: 999px;
-      text-align: center;
-    }
-    button {
-      border: solid 1px #123ac8;
-      border-radius: 999px;
-      width: 100%;
-      margin: 0 10px 5px 0;
-      position: static;
-      background-color: #ccb;
-    }
-    button:hover {
-      background-color: #fe4236;
-      transition: 0.35s;
+
+      input {
+        font-family: "Montserrat", sans-serif;
+        padding: 10px;
+        margin: 3px;
+        font-size: 12px;
+        border: solid 1px #123ac8;
+        border-radius: 999px;
+        text-align: center;
+      }
+      button {
+        border: solid 1px #123ac8;
+        border-radius: 999px;
+        width: 100%;
+        margin: 0 10px 5px 0;
+        position: static;
+        background-color: #ccb;
+      }
+      button:hover {
+        background-color: #fe4236;
+        transition: 0.35s;
+      }
     }
   }
 }
