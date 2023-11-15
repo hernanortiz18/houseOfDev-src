@@ -15,6 +15,9 @@ function Home() {
   return (
     <>
       <div>
+        <div></div>
+        <div></div>
+
         <div>House of Dev</div>
         <p>Tu nueva vivienda está aqui</p>
         <img src={imagen} alt="imagen" />
