@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import "../styles/register.scss";
-import image from "../assets/img/Group 179.png";
+import headImg from "../assets/img/Group179.png";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -40,10 +40,7 @@ const Register = () => {
     <div className="bg-color">
       <div className="bg-imagen">
         <div className="register-container">
-          <div className="hod-logo">
-            <p className="house">HOUSE</p>
-            <p className="ofDev">OF DEV</p>
-          </div>
+          <img src={headImg} alt="" />
           <form onSubmit={handleSubmit} className="formRegister">
             <input
               value={registerData.name}
