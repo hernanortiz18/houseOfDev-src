@@ -1,40 +1,59 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
 
-.register-container {
-  display: flex;
-  flex-direction: column;
-  width: 350px;
-  margin-right: 300px;
-  .logoHod {
-    margin: 0;
-    width: 350px;
+.bg-color {
+  width: 100vw;
+  height: 100%;
+  margin: 0;
+  .bg-imagen {
+    background: linear-gradient(to right, red 40%, transparent 0),
+      url("../assets/img/Maskgroup.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
   }
-  .formRegister {
-    margin-top: 0;
-    width: 320px;
+  .register-container {
     display: flex;
     flex-direction: column;
+    width: 350px;
+    height: 700px;
+    margin-right: 300px;
     border: solid 1px #123ac8;
-    background-color: #f7f3ee;
-    padding: 10px;
-
-    input {
-      font-family: "Montserrat", sans-serif;
-      padding: 10px;
-      margin: 3px;
-      font-size: 12px;
-      border: solid 1px #123ac8;
-      border-radius: 999px;
-      text-align: center;
+    .logoHod {
+      margin: 0;
+      width: 350px;
     }
-    button {
-      border: solid 1px #123ac8;
-      border-radius: 999px;
-      max-width: 110px;
-      margin: 0 10px 5px 0;
+    .formRegister {
+      margin-top: 0;
+      width: 330px;
+      display: flex;
+      flex-direction: column;
+      background-color: #f7f3ee;
+      padding: 10px;
+
+      input {
+        font-family: "Montserrat", sans-serif;
+        padding: 10px;
+        margin: 3px;
+        font-size: 12px;
+        border: solid 1px #123ac8;
+        border-radius: 999px;
+        text-align: center;
+      }
+      button {
+        border: solid 1px #123ac8;
+        border-radius: 999px;
+        width: 100%;
+        margin: 0 10px 5px 0;
+        position: static;
+        background-color: #ccb;
+      }
+      button:hover {
+        background-color: #fe4236;
+        transition: 0.35s;
+      }
     }
   }
 }
+
 
 body,
 html {
@@ -53,3 +72,4 @@ html {
   display: flex;
   height: 100vh;
 }
+
