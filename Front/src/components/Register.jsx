@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import "../styles/register.scss";
 import headImg from "../assets/img/Group179.png";
+import { Link } from "react-router-dom";
 
 const Register = () => {
   const navigate = useNavigate();
@@ -40,7 +41,7 @@ const Register = () => {
     <div className="bg-color">
       <div className="bg-imagen">
         <div className="register-container">
-          <img src={headImg} alt="" />
+          <img src={headImg} alt="logo hod" className="logoHod" />
           <form onSubmit={handleSubmit} className="formRegister">
             <input
               value={registerData.name}
@@ -83,7 +84,9 @@ const Register = () => {
             />
             <br />
             <button type="submit">Register</button>
-            <button>Log in</button>
+            <Link to="/login">
+              <button>Log in</button>
+            </Link>
           </form>
         </div>
       </div>
