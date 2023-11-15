@@ -1,0 +1,18 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+
+.formRegister {
+  display: flex;
+  flex-direction: column;
+  border: solid 1px #123ac8;
+  input {
+    font-family: "Montserrat", sans-serif;
+    padding: 10px;
+    font-size: 10px;
+    border: solid 1px #123ac8;
+    border-radius: 999px;
+  }
+  button {
+    border: solid 1px #123ac8;
+    border-radius: 999px;
+  }
+}
