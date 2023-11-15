@@ -1,18 +1,44 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+
+.bg-color {
+  display: flex;
+}
+
+.register-container {
+  display: flex;
+  flex-direction: column;
+  width: 350px;
+  .hod-logo {
+    background-color: #fe1236;
+    margin: 10px;
+    width: 350px;
+    .house {
+      font-family: "Montserrat", sans-serif;
+      font-size: 50px;
+      text-align: left;
+      margin-left: 5px;
+      color: #f7f3ee;
+    }
+  }
+}
 
 .formRegister {
   display: flex;
   flex-direction: column;
   border: solid 1px #123ac8;
+  align-content: space-between;
   input {
     font-family: "Montserrat", sans-serif;
     padding: 10px;
-    font-size: 10px;
+    margin: 5px;
+    font-size: 18px;
     border: solid 1px #123ac8;
     border-radius: 999px;
   }
   button {
     border: solid 1px #123ac8;
     border-radius: 999px;
+    max-width: 110px;
+    margin: 20px;
   }
 }
