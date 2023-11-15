@@ -12,7 +12,10 @@ function Home() {
 
   return (
     <>
-      <div>House of Dev</div>
+      <div>
+        <div>House of Dev</div>
+        <p>Tu nueva vivienda está aqui</p>
+      </div>
     </>
   );
 }
