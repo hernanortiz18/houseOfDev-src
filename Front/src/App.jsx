@@ -10,7 +10,8 @@ function App() {
   const [user, setUser] = useState({});
   useEffect(() => {
     axios
-      .get("/api/me")
+      //            http://localhost:8000/
+      .get("http://localhost:8000/api/users/me", { withCredentials: true })
       .then((res) => res.data)
       .then((user) => setUser(user))
       .catch(() => console.log("Necesitas loguearte con tu cuenta de usuario"));
@@ -21,7 +22,6 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/me" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
         </Routes>
