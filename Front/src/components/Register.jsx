@@ -26,13 +26,17 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:8000/api/users/register", {
-        name: registerData.name,
-        lastName: registerData.lastName,
-        phone: registerData.phone,
-        email: registerData.email,
-        password: registerData.password,
-      })
+      .post(
+        "http://localhost:8000/api/users/register",
+        {
+          name: registerData.name,
+          lastName: registerData.lastName,
+          phone: registerData.phone,
+          email: registerData.email,
+          password: registerData.password,
+        },
+        { withCredentials: true }
+      )
       .then((res) => res.data)
       .then(() => navigate("/login"));
   };
