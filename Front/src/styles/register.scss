@@ -1,9 +1,12 @@
 body {
   margin: 0;
   padding: 0;
+  height: 100vg;
+  width: 100vw;
 }
 
 .fondo {
+  margin: 0;
   position: relative;
   min-height: 100vh;
   min-width: 100%;
@@ -20,7 +23,7 @@ body {
 
   form {
     position: absolute;
-    top: 70%;
+    top: 50%;
     left: 80%;
     transform: translate(-50%, -50%);
     z-index: 1;
@@ -40,6 +43,7 @@ body {
   button {
     width: 100%;
     padding: 0.5rem;
+    margin: -8px -5px;
   }
 
   @media (max-width: 768px) {
