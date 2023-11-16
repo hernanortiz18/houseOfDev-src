@@ -1,7 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import estilosLogin from "../styles/login.scss?inline";
+import "../styles/login.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -33,8 +34,7 @@ function Login() {
   };
 
   return (
-    <div className={estilosLogin[""]}>
-      <h1>Tu nueva vivienda está aqui</h1>
+    <div className="estiloLogin">
       <form onSubmit={handleLogin}>
         <input
           value={email}
