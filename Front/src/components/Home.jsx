@@ -18,13 +18,11 @@ function Home() {
   }, []);
   console.log("hola");
   return (
-
-      <div className="row h-100 m-0">
-        <div className="col d-flex align-items-center justify-content-center">
-          <Link to="/login" style={{ width: "100%", height: "100%" }}>
-            <img src={imagen} alt="imagen" className="w-100 h-100" />
-          </Link>
-        </div>
+    <div className="row h-100 m-0">
+      <div className="col d-flex align-items-center justify-content-center">
+        <Link to="/login" style={{ width: "100%", height: "100%" }}>
+          <img src={imagen} alt="imagen" className="w-100 h-100" />
+        </Link>
       </div>
     </div>
   );
