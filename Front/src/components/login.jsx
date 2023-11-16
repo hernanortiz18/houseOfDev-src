@@ -1,5 +1,8 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import "../styles/login.scss";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -21,7 +24,7 @@ function Login() {
           email: email,
           password: password,
         },
-        { withCredential: true }
+        { withCredentials: true }
       )
       .then((res) => res.data)
       .then(() => {
@@ -31,13 +34,15 @@ function Login() {
   };
 
   return (
-    <>
-      <h1>Tu nueva vivienda está aqui</h1>
+    <div className="estiloLogin">
       <form onSubmit={handleLogin}>
         <input
           value={email}
           onChange={handleChangeEmail}
           placeholder="EMAIL"
+          className="form-control"
+          id="floatingInput"
+          type="email"
         ></input>
         <br />
 
@@ -46,13 +51,24 @@ function Login() {
           onChange={handleChangePassword}
           type="password"
           placeholder="PASSWORD"
+          className="form-control"
+          id="floatingPassword"
         ></input>
+
         <br />
-        <p>¿Olvidaste tu contraseña?</p>
-        <button>REGISTER</button>
-        <button type="submit">LOG IN</button>
+        <Link to={"/"}>
+          <p>¿Olvidaste tu contraseña?</p>
+        </Link>
+
+        <Link to="/register">
+          <button className="btn btn-primary mx-2">REGISTER</button>
+        </Link>
+
+        <button type="submit" className="btn btn-success mx-2">
+          LOG IN
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 export default Login;
