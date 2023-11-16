@@ -81,11 +81,13 @@ const Register = () => {
             onChange={handleChange}
           />
           <br />
+
           <button className="btn btn-primary mx-2" type="submit">
             Register
           </button>
           <Link to="/login">
             <button className="btn btn-success mx-2">Log in</button>
+   
           </Link>
         </form>
       </div>
