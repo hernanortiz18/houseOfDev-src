@@ -54,9 +54,12 @@ function Login() {
           className="form-control"
           id="floatingPassword"
         ></input>
-        <label htmlFor="floatingPassword">Password</label>
+
         <br />
-        <p>¿Olvidaste tu contraseña?</p>
+        <Link to={"/"}>
+          <p>¿Olvidaste tu contraseña?</p>
+        </Link>
+
         <Link to="/register">
           <button className="btn btn-primary mx-2">REGISTER</button>
         </Link>
