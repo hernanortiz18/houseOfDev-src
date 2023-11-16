@@ -38,57 +38,55 @@ const Register = () => {
   };
 
   return (
-    <div className="bg-color">
-      <div className="bg-imagen">
-        <div className="register-container">
-          <img src={headImg} alt="logo hod" className="logoHod" />
-          <form onSubmit={handleSubmit} className="formRegister">
-            <input
-              value={registerData.name}
-              type="text"
-              name="name"
-              placeholder="Name"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              value={registerData.lastName}
-              type="text"
-              name="lastName"
-              placeholder="Last name"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              value={registerData.phone}
-              type="text"
-              name="phone"
-              placeholder="Phone"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              value={registerData.email}
-              type="text"
-              name="email"
-              placeholder="E-mail"
-              onChange={handleChange}
-            />
-            <br />
-            <input
-              value={registerData.password}
-              type="password"
-              name="password"
-              placeholder="Password"
-              onChange={handleChange}
-            />
-            <br />
-            <button type="submit">Register</button>
-            <Link to="/login">
-              <button>Log in</button>
-            </Link>
-          </form>
-        </div>
+    <div className="fondo">
+      <div className="register">
+        <img src={headImg} alt="logo hod" className="logoHod" />
+        <form onSubmit={handleSubmit} className="formRegister">
+          <input
+            value={registerData.name}
+            type="text"
+            name="name"
+            placeholder="Name"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            value={registerData.lastName}
+            type="text"
+            name="lastName"
+            placeholder="Last name"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            value={registerData.phone}
+            type="text"
+            name="phone"
+            placeholder="Phone"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            value={registerData.email}
+            type="text"
+            name="email"
+            placeholder="E-mail"
+            onChange={handleChange}
+          />
+          <br />
+          <input
+            value={registerData.password}
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+          />
+          <br />
+          <button type="submit">Register</button>
+          <Link to="/login">
+            <button>Log in</button>
+          </Link>
+        </form>
       </div>
     </div>
   );
