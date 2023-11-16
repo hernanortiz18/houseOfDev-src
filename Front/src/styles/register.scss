@@ -1,4 +1,11 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@800&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vg;
+  width: 100vw;
+}
+
 
 .fondo {
   display: flex;
@@ -51,26 +58,28 @@
         background-color: #fe4236;
         transition: 0.35s;
       }
+
     }
   }
+
+  label {
+    text-align: left;
+    display: block;
+    margin-bottom: 0.5rem;
+  }
+
+  .btn-primary,
+  .btn-success {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+  p {
+    color: #007bff;
+    transition: color 0.3s ease;
+    transition: color 0.3s ease;
+    font-size: 20px;
+  }
+  p:hover {
+    color: #0056b3;
+  }
 }
-
-
-body,
-html {
-  height: 100%;
-  margin: 0;
-}
-
-// body {
-//   background: linear-gradient(to right, red 40%, transparent 0),
-//     url("../assets/img/Maskgroup.png");
-//   background-size: 100% 100%;
-//   background-repeat: no-repeat;
-// }
-
-.container {
-  display: flex;
-  height: 100vh;
-}
-

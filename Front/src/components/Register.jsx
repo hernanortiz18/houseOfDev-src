@@ -40,7 +40,6 @@ const Register = () => {
   return (
     <div className="fondo">
       <div className="register">
-        <img src={headImg} alt="logo hod" className="logoHod" />
         <form onSubmit={handleSubmit} className="formRegister">
           <input
             value={registerData.name}
@@ -82,9 +81,13 @@ const Register = () => {
             onChange={handleChange}
           />
           <br />
-          <button type="submit">Register</button>
+
+          <button className="btn btn-primary mx-2" type="submit">
+            Register
+          </button>
           <Link to="/login">
-            <button>Log in</button>
+            <button className="btn btn-success mx-2">Log in</button>
+   
           </Link>
         </form>
       </div>
