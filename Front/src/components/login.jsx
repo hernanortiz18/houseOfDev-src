@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import estilosLogin from "../styles/login.scss?inline";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -22,7 +23,7 @@ function Login() {
           email: email,
           password: password,
         },
-        { withCredential: true }
+        { withCredentials: true }
       )
       .then((res) => res.data)
       .then(() => {
@@ -32,13 +33,16 @@ function Login() {
   };
 
   return (
-    <>
+    <div className={estilosLogin[""]}>
       <h1>Tu nueva vivienda está aqui</h1>
       <form onSubmit={handleLogin}>
         <input
           value={email}
           onChange={handleChangeEmail}
           placeholder="EMAIL"
+          className="form-control"
+          id="floatingInput"
+          type="email"
         ></input>
         <br />
 
@@ -47,16 +51,21 @@ function Login() {
           onChange={handleChangePassword}
           type="password"
           placeholder="PASSWORD"
+          className="form-control"
+          id="floatingPassword"
         ></input>
+        <label htmlFor="floatingPassword">Password</label>
         <br />
         <p>¿Olvidaste tu contraseña?</p>
         <Link to="/register">
-          <button>REGISTER</button>
+          <button className="btn btn-primary mx-2">REGISTER</button>
         </Link>
 
-        <button type="submit">LOG IN</button>
+        <button type="submit" className="btn btn-success mx-2">
+          LOG IN
+        </button>
       </form>
-    </>
+    </div>
   );
 }
 export default Login;
