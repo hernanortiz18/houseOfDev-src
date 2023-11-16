@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -49,7 +50,10 @@ function Login() {
         ></input>
         <br />
         <p>¿Olvidaste tu contraseña?</p>
-        <button>REGISTER</button>
+        <Link to="/register">
+          <button>REGISTER</button>
+        </Link>
+
         <button type="submit">LOG IN</button>
       </form>
     </>
