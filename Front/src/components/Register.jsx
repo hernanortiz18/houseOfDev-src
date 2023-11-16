@@ -45,7 +45,7 @@ const Register = () => {
             value={registerData.name}
             type="text"
             name="name"
-            placeholder="Name"
+            placeholder="NAME"
             onChange={handleChange}
           />
           <br />
@@ -53,7 +53,7 @@ const Register = () => {
             value={registerData.lastName}
             type="text"
             name="lastName"
-            placeholder="Last name"
+            placeholder="LAST NAME"
             onChange={handleChange}
           />
           <br />
@@ -61,7 +61,7 @@ const Register = () => {
             value={registerData.phone}
             type="text"
             name="phone"
-            placeholder="Phone"
+            placeholder="PHONE"
             onChange={handleChange}
           />
           <br />
@@ -69,7 +69,7 @@ const Register = () => {
             value={registerData.email}
             type="text"
             name="email"
-            placeholder="E-mail"
+            placeholder="E-MAIL"
             onChange={handleChange}
           />
           <br />
@@ -77,17 +77,16 @@ const Register = () => {
             value={registerData.password}
             type="password"
             name="password"
-            placeholder="Password"
+            placeholder="PASSWORD"
             onChange={handleChange}
           />
           <br />
 
           <button className="btn btn-primary mx-2" type="submit">
-            Register
+            REGISTER
           </button>
           <Link to="/login">
-            <button className="btn btn-success mx-2">Log in</button>
-   
+            <button className="btn btn-success mx-2">LOG IN</button>
           </Link>
         </form>
       </div>
