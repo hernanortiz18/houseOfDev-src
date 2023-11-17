@@ -6,6 +6,7 @@ import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./commons/Navbar";
+import Contenido from "./components/Contenido";
 
 function App() {
   const [user, setUser] = useState({});
@@ -26,6 +27,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/navbar" element={<Navbar />} />
+          <Route path="/contenido" element={<Contenido />} />
         </Routes>
       </BrowserRouter>
     </>
