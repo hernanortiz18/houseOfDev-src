@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Navbar from "./commons/Navbar";
 import Contenido from "./components/Contenido";
+import Profile from "./components/Profile";
 
 function App() {
   const [user, setUser] = useState({});
@@ -28,6 +29,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/navbar" element={<Navbar />} />
           <Route path="/contenido" element={<Contenido />} />
+          <Route path="/perfil" element={<Profile />} />
         </Routes>
       </BrowserRouter>
     </>
