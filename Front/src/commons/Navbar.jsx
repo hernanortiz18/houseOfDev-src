@@ -26,7 +26,7 @@ function Navbar() {
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link to={"/venta"} className="nav-link">
-                  En venta
+                  En Venta
                 </Link>
               </li>
               <li className="nav-item">
@@ -37,12 +37,12 @@ function Navbar() {
 
               <li className="nav-item">
                 <Link to={"/agenda"} className="nav-link">
-                  Agenda tu visita
+                  Agenda Tu Visita
                 </Link>
               </li>
               <li className="nav-item">
                 <Link to={"/servicios"} className="nav-link">
-                  Nuestros servicios
+                  Nuestros Servicios
                 </Link>
               </li>
               <li className="nav-item">
@@ -58,6 +58,16 @@ function Navbar() {
               <li className="nav-item">
                 <Link to={"/contacto"} className="nav-link">
                   Contacto
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/register"} className="nav-link">
+                  Registrate
+                </Link>
+              </li>
+              <li className="nav-item">
+                <Link to={"/login"} className="nav-link">
+                  Log In
                 </Link>
               </li>
             </ul>
