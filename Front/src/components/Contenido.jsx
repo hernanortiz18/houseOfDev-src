@@ -77,11 +77,11 @@ function Contenido() {
             />
           </div>
           {/* Boton para ver las propiedades */}
-          {/* <Link to={"/results"}> */}
-          <button type="submit" className="btn btn-primary">
-            Ver Propiedades
-          </button>
-          {/* </Link> */}
+          <Link to={"/results"}>
+            <button type="submit" className="btn btn-primary">
+              Ver Propiedades
+            </button>
+          </Link>
         </form>
       </div>
 

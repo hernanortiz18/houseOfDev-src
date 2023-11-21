@@ -5,7 +5,7 @@ import Login from "./components/login";
 import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Navbar from "./commons/Navbar";
+
 import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 

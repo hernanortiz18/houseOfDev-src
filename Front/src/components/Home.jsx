@@ -13,7 +13,6 @@ function Home() {
       .then((response) => response.data)
       .catch((error) => {
         console.log(error);
-        s;
       });
   }, []);
   console.log("hola");
