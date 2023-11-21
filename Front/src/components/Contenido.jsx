@@ -3,7 +3,6 @@ import Navbar from "../commons/Navbar";
 import "../styles/contenido.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import UserProperty from "../commons/userProperty";
 
 function Contenido() {
   const [search, setSearch] = useState("");
@@ -21,11 +20,10 @@ function Contenido() {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post(`/api/properties/alquiler`, { search: search })
+      .get(`http://localhost:8000/api/properties/${search}`)
       .then((res) => res.data)
 
       .then((search) => {
-        console.log(search);
         setSearchResult(search);
       })
 
@@ -60,7 +58,7 @@ function Contenido() {
               name="opcionBusqueda"
               checked={search === "compra"}
               id="comprar"
-              value="comprar"
+              value="compra"
               onChange={handleOptionBusqueda}
             />
             <label className="form-check-label" htmlFor="comprar">
@@ -79,26 +77,15 @@ function Contenido() {
             />
           </div>
           {/* Boton para ver las propiedades */}
-          <Link to={"/results"}>
-            <button type="button" className="btn btn-primary">
-              Ver Propiedades
-            </button>
-          </Link>
+          {/* <Link to={"/results"}> */}
+          <button type="submit" className="btn btn-primary">
+            Ver Propiedades
+          </button>
+          {/* </Link> */}
         </form>
       </div>
 
       {/* mapear */}
-      <div className="container">
-        <div className="row">
-          {searchResult.map((data, i) => (
-            <div className="col-md-4" key={i}>
-              <Link to={`propiedades/${(data, i)}`}>
-                <UserProperty property={data} />
-              </Link>
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 }
