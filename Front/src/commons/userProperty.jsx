@@ -1,6 +1,6 @@
 import React from "react";
 
-function userProperty({ property }) {
+function UserProperty({ property }) {
   return (
     <>
       <h1>Propiedades</h1>
@@ -18,4 +18,4 @@ function userProperty({ property }) {
   );
 }
 
-export default userProperty;
+export default UserProperty;
