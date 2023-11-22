@@ -8,7 +8,7 @@ const Property = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/properties", { withCredentials: true })
+      .get("http://localhost:8000/api/properties", { withCredentials: true })
       .then((res) => res.data)
       .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");

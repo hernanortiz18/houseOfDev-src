@@ -1,21 +1,23 @@
 import UserProperty from "./UserProperty";
+import { Link } from "react-router-dom";
 
-const PropertyCard = ({ property }) => {
+const CardProperties = ({ property }) => {
   return (
     <>
       <div className="container">
         <div className="row">
-          {properties.map((data, i) => (
-            <div className="col-md-4" key={i}>
-              <Link to={`propiedades/${data.id}`}>
-                <UserProperty data={data} />
-              </Link>
-            </div>
-          ))}
+          {property.length &&
+            property.map((data, i) => (
+              <div className="col-md-4" key={i}>
+                <Link to={`propiedades/${data.id}`}>
+                  <UserProperty data={data} />
+                </Link>
+              </div>
+            ))}
         </div>
       </div>
     </>
   );
 };
 
-export default PropertyCard;
+export default CardProperties;
