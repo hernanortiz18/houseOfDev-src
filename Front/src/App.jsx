@@ -5,20 +5,21 @@ import Login from "./components/login";
 import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import PropertyCard from "./commons/CardProperties";
-
+import Property from "./components/Property";
+import { setUser } from "./redux/user";
 import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
+import { useDispatch } from "react-redux";
 
 function App() {
-  const [user, setUser] = useState({});
+  const dispatch = useDispatch();
 
   useEffect(() => {
     axios
       //            http://localhost:8000/
       .get("http://localhost:8000/api/users/me", { withCredentials: true })
       .then((res) => res.data)
-      .then((user) => setUser(user))
+      .then((user) => dispatch(setUser(user)))
       .catch(() => console.log("Necesitas loguearte con tu cuenta de usuario"));
   }, []);
 
@@ -31,7 +32,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/contenido" element={<Contenido />} />
           <Route path="/perfil" element={<Profile />} />
-          <Route path="/results" element={<PropertyCard />} />
+          <Route path="/results" element={<Property />} />
         </Routes>
       </BrowserRouter>
     </>

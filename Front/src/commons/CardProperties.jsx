@@ -1,12 +1,6 @@
 import UserProperty from "./UserProperty";
-import { useSelector } from "react-redux";
 
-const PropertyCard = () => {
-  const properties = useSelector((state) => {
-    console.log(state);
-    return state.properties;
-  });
-
+const PropertyCard = ({ property }) => {
   return (
     <>
       <div className="container">
@@ -14,7 +8,7 @@ const PropertyCard = () => {
           {properties.map((data, i) => (
             <div className="col-md-4" key={i}>
               <Link to={`propiedades/${data.id}`}>
-                <UserProperty property={data} />
+                <UserProperty data={data} />
               </Link>
             </div>
           ))}
