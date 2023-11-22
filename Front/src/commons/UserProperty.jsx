@@ -1,9 +1,10 @@
 import React from "react";
+import "../styles/properties.scss";
 
 function UserProperty({ data }) {
   return (
-    <>
-      <h1>Propiedades</h1>
+    <div className="properties">
+      {/* <h1>Propiedades</h1> */}
       <h2>Provincia</h2>
       <p>{data?.province}</p>
       <h2>Ciudad</h2>
@@ -14,7 +15,7 @@ function UserProperty({ data }) {
       <p>{data?.number}</p>
       <h2>Precio</h2>
       <p>{data?.price}</p>
-    </>
+    </div>
   );
 }
 
