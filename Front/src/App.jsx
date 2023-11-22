@@ -9,7 +9,6 @@ import axios from "axios";
 import Property from "./components/Property";
 import { setUser } from "./redux/user";
 
-
 import { useDispatch } from "react-redux";
 
 import PropertyCard from "./commons/CardProperties";
@@ -17,7 +16,7 @@ import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 import Alquiler from "./components/Alquiler";
 import Venta from "./components/Venta";
-
+import UserProperty from "./commons/UserProperty";
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +29,10 @@ function App() {
       .then((user) => dispatch(setUser(user)))
       .catch(() => console.log("Necesitas loguearte con tu cuenta de usuario"));
   }, []);
+  axios
+    .get("http://localhost:8000/api/properties/:id")
+    .then((res) => res.data)
+    .catch((Error) => console.error(Error));
 
   return (
     <>
@@ -43,6 +46,7 @@ function App() {
           <Route path="/venta" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/results" element={<Property />} />
+          <Route path="/alquiler/propiedades/:id" element={<UserProperty />} />
         </Routes>
       </BrowserRouter>
     </>
