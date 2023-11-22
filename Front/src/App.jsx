@@ -5,11 +5,19 @@ import Login from "./components/login";
 import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
+
 import Property from "./components/Property";
 import { setUser } from "./redux/user";
+
+
+import { useDispatch } from "react-redux";
+
+import PropertyCard from "./commons/CardProperties";
 import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
-import { useDispatch } from "react-redux";
+import Alquiler from "./components/Alquiler";
+import Venta from "./components/Venta";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -31,6 +39,8 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/contenido" element={<Contenido />} />
+          <Route path="/alquiler" element={<Alquiler />} />
+          <Route path="/venta" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/results" element={<Property />} />
         </Routes>
