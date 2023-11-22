@@ -11,7 +11,7 @@ const Profile = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/users/profile", { withCredentials: true })
+      .get("http://localhost:8000/api/users/profile", { withCredentials: true })
       .then((res) => res.data)
       .then((result) => setUserLogin(result))
       .catch(() => "Usuario no encontrado");
