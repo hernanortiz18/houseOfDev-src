@@ -3,12 +3,14 @@ import Navbar from "../commons/Navbar";
 import axios from "axios";
 import CardProperties from "../commons/CardProperties";
 
-const Property = () => {
+const Property = ({ search }) => {
   const [property, setProperty] = useState({});
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/properties", { withCredentials: true })
+      .get(`http://localhost:8000/api/properties/${search}`, {
+        withCredentials: true,
+      })
       .then((res) => res.data)
       .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
