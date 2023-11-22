@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getProperties = () => {
+export const getProperties = (search) => {
   axios
-    .get("http://localhost:8000/api/properties")
+    .get(`http://localhost:8000/api/properties/${seach}`)
     .then((properties) => properties.data)
     .catch((Error) => console.error(Error));
 };

@@ -3,8 +3,12 @@ import Navbar from "../commons/Navbar";
 import "../styles/contenido.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { setProperties } from "../redux/properties";
+import { useDispatch } from "react-redux";
 
 function Contenido() {
+  const dispatch = useDispatch();
+
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   // const [ubicacion, setUbicacion] = useState("");
@@ -19,15 +23,9 @@ function Contenido() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .get(`http://localhost:8000/api/properties/${search}`)
-      .then((res) => res.data)
-
-      .then((search) => {
-        setSearchResult(search);
-      })
-
-      .catch((error) => console.log("error"));
+    const action = setProperties(search);
+    console.log("ACTIONNNNNN", action);
+    dispatch(action);
   };
 
   return (

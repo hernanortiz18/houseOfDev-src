@@ -5,12 +5,14 @@ import Login from "./components/login";
 import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PropertyCard from "./commons/CardProperties";
 
 import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 
 function App() {
   const [user, setUser] = useState({});
+
   useEffect(() => {
     axios
       //            http://localhost:8000/
@@ -29,6 +31,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/contenido" element={<Contenido />} />
           <Route path="/perfil" element={<Profile />} />
+          <Route path="/results" element={<PropertyCard />} />
         </Routes>
       </BrowserRouter>
     </>
