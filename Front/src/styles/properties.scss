@@ -1,8 +1,12 @@
 .properties {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   background-color: #ddf;
-  width: 80vw;
-  height: 40vh;
+  margin-top: 80px;
+  width: 500px;
+  height: 80vh;
+  padding: 100px;
   align-items: center;
 }
