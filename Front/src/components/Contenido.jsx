@@ -72,7 +72,7 @@ function Contenido() {
             />
           </div>
           {/* Boton para ver las propiedades */}
-          <Link to={"/results"}>
+          <Link to={`/${search}`}>
             <button type="submit" className="btn btn-primary">
               Ver Propiedades
             </button>
