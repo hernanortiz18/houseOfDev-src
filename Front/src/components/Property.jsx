@@ -10,14 +10,14 @@ const Property = () => {
     axios
       .get("http://localhost:8000/properties", { withCredentials: true })
       .then((res) => res.data)
-      .then((user) => setProperty(user))
+      .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
   });
 
   return (
     <>
       <Navbar />
-      <CardProperties />
+      <CardProperties property={property} />
     </>
   );
 };

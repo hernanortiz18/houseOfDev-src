@@ -3,12 +3,8 @@ import Navbar from "../commons/Navbar";
 import "../styles/contenido.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
-import { setProperties } from "../redux/properties";
-import { useDispatch } from "react-redux";
 
 function Contenido() {
-  const dispatch = useDispatch();
-
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
   // const [ubicacion, setUbicacion] = useState("");
@@ -23,9 +19,10 @@ function Contenido() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const action = setProperties(search);
-    console.log("ACTIONNNNNN", action);
-    dispatch(action);
+    axios
+      .get(`http://localhost:8000/api/properties/${search}`)
+      .then((res) => res.data)
+      .catch((error) => console.log("error"));
   };
 
   return (
@@ -54,7 +51,7 @@ function Contenido() {
               className="form-check-input"
               type="radio"
               name="opcionBusqueda"
-              checked={search === "compra"}
+              checked={search === "comprar"}
               id="comprar"
               value="compra"
               onChange={handleOptionBusqueda}
