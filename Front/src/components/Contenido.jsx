@@ -53,7 +53,7 @@ function Contenido() {
               name="opcionBusqueda"
               checked={search === "comprar"}
               id="comprar"
-              value="compra"
+              value="comprar"
               onChange={handleOptionBusqueda}
             />
             <label className="form-check-label" htmlFor="comprar">
