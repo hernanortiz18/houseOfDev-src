@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Navbar from "../commons/Navbar";
 import axios from "axios";
 import CardProperties from "../commons/CardProperties";
+import { useParams } from "react-router";
 
 const Property = ({ search }) => {
   const [property, setProperty] = useState({});
@@ -14,7 +15,9 @@ const Property = ({ search }) => {
       .then((res) => res.data)
       .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
-  });
+  }, []);
+
+  console.log("//////////////////////PROPERTY////////////////////", property);
 
   return (
     <>

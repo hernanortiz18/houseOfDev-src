@@ -11,13 +11,16 @@ import { setUser } from "./redux/user";
 
 import { useDispatch } from "react-redux";
 
-import PropertyCard from "./commons/CardProperties";
 import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 import Alquiler from "./components/Alquiler";
 import Venta from "./components/Venta";
 
+import DetailProperty from "./components/DetailProperty";
+
+
 import UserProperty from "./commons/UserProperty";
+
 
 
 function App() {
@@ -48,7 +51,11 @@ function App() {
           <Route path="/comprar" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/results" element={<Property />} />
-          <Route path="/alquiler/propiedades/:id" element={<UserProperty />} />
+
+          <Route
+            path="/alquiler/propiedades/:id"
+            element={<DetailProperty />}
+          />
         </Routes>
       </BrowserRouter>
     </>
