@@ -1,20 +1,21 @@
 import React from "react";
+import "../styles/properties.scss";
 
-function UserProperty({ property }) {
+function UserProperty({ data }) {
   return (
-    <>
-      <h1>Propiedades</h1>
+    <div className="properties">
+      {/* <h1>Propiedades</h1> */}
       <h2>Provincia</h2>
-      <p>{property.province}</p>
+      <p>{data?.province}</p>
       <h2>Ciudad</h2>
-      <p>{property.city}</p>
+      <p>{data?.city}</p>
       <h2>Dirección</h2>
-      <p>{property.adress}</p>
+      <p>{data?.adress}</p>
       <h2>número</h2>
-      <p>{property.number}</p>
+      <p>{data?.number}</p>
       <h2>Precio</h2>
-      <p>{property.price}</p>
-    </>
+      <p>{data?.price}</p>
+    </div>
   );
 }
 

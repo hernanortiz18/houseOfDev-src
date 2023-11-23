@@ -53,7 +53,7 @@ function Contenido() {
               name="opcionBusqueda"
               checked={search === "comprar"}
               id="comprar"
-              value="compra"
+              value="comprar"
               onChange={handleOptionBusqueda}
             />
             <label className="form-check-label" htmlFor="comprar">
@@ -72,7 +72,7 @@ function Contenido() {
             />
           </div>
           {/* Boton para ver las propiedades */}
-          <Link to={"/results"}>
+          <Link to={`/${search}`}>
             <button type="submit" className="btn btn-primary">
               Ver Propiedades
             </button>
