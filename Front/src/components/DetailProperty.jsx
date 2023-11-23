@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import axios from "axios";
 import Navbar from "../commons/Navbar";
+import { Link } from "react-router-dom";
 
 const DetailProperty = () => {
   const [data, setData] = useState({});
@@ -30,6 +31,13 @@ const DetailProperty = () => {
         <p>{data?.number}</p>
         <h2>Precio</h2>
         <p>{data?.price}</p>
+        <div className="d-flex align-items-center">
+          <Link to={"/favoritos"}>
+            <button type="button" class="btn btn-light">
+              Favoritos ❤️
+            </button>
+          </Link>
+        </div>
       </div>
     </>
   );
