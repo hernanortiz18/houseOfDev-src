@@ -5,7 +5,6 @@ import Property from "./Property";
 
 function Venta() {
   const search = "comprar";
-
   return (
     <>
       <Navbar />

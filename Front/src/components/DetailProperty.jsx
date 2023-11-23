@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import Property from "./Property";
+import axios from "axios";
+import Navbar from "../commons/Navbar";
 
 const DetailProperty = () => {
   const [data, setData] = useState({});
@@ -16,6 +17,7 @@ const DetailProperty = () => {
 
   return (
     <>
+      <Navbar />
       <div className="properties">
         <h1>Propiedades</h1>
         <h2>Provincia</h2>

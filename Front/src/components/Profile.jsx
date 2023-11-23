@@ -8,10 +8,13 @@ const Profile = () => {
   const [userLogin, setUserLogin] = useState({});
 
   const user = useSelector((state) => state.user);
+  const { email } = user;
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/api/users/profile", { withCredentials: true })
+      .get(`http://localhost:8000/api/users/profile/?email=${email}`, {
+        withCredentials: true,
+      })
       .then((res) => res.data)
       .then((result) => setUserLogin(result))
       .catch(() => "Usuario no encontrado");

@@ -19,10 +19,10 @@ function Contenido() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .get(`http://localhost:8000/api/properties/${search}`)
-      .then((res) => res.data)
-      .catch((error) => console.log("error"));
+    // axios
+    //   .get(`http://localhost:8000/api/properties/${search}`)
+    //   .then((res) => res.data)
+    //   .catch((error) => console.log("error"));
   };
 
   return (
