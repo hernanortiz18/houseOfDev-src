@@ -4,8 +4,11 @@ import { Link } from "react-router-dom";
 import "../styles/login.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../commons/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -31,7 +34,8 @@ function Login() {
       .then(() => {
         setPassword("");
         setEmail("");
-      });
+      })
+      .then(() => navigate("/contenido"));
   };
 
   return (
