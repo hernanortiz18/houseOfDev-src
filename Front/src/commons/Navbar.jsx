@@ -3,6 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
 import "../styles/navbar.scss";
+import icono from "../assets/img/Group 177.png";
 
 function Navbar() {
   return (
@@ -10,7 +11,7 @@ function Navbar() {
       <nav className="navbar navbar-expand-lg bg-custom fixed-top">
         <div className="container-fluid">
           <Link to={"/"} className="nav-link">
-            House Of Dev
+            <img src={icono} />
           </Link>
 
           <button
@@ -25,7 +26,7 @@ function Navbar() {
             <span className="navbar-toggler-icon"></span>
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link to={"/comprar"} className="nav-link">
                   En Venta
