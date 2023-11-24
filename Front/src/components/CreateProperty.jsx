@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import NavbarAdmin from "../commons/navbaradmin";
-import "../styles/createproperties.scss";
 
 function CreateProperty() {
   const [province, setProvince] = useState("");
@@ -17,7 +15,6 @@ function CreateProperty() {
 
   return (
     <>
-      <NavbarAdmin />
       <form onSubmit={handleSubmit}>
         <h1>Nueva Propiedad</h1>
         <input placeholder="province" className="form-control"></input>

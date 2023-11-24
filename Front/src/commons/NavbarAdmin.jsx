@@ -28,12 +28,12 @@ function Navbar() {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link to={"/comprar"} className="nav-link">
+                <Link to={"/crearPropiedades"} className="nav-link">
                   Crear propiedades
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"/alquiler"} className="nav-link">
+                <Link to={""} className="nav-link">
                   Usuarios
                 </Link>
               </li>
