@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "../commons/Navbar";
+
 import "../styles/contenido.scss";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import Navbar from "../commons/Navbar";
 
 function Contenido() {
   const [search, setSearch] = useState("");
@@ -27,8 +28,8 @@ function Contenido() {
 
   return (
     <div className="vista-user">
+      <Navbar />
       <div className="container">
-        <Navbar />
         <div className="form-container">
           <h2>¿Qué estás buscando?</h2>
           {/* Aqui empieza el checkbox */}
