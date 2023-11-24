@@ -19,6 +19,7 @@ import Venta from "./components/Venta";
 import DetailProperty from "./components/DetailProperty";
 
 import UserProperty from "./commons/UserProperty";
+import CreateProperty from "./components/CreateProperty";
 
 function App() {
   const dispatch = useDispatch();
@@ -47,6 +48,7 @@ function App() {
             element={<DetailProperty />}
           />
           <Route path="/comprar/propiedades/:id" element={<DetailProperty />} />
+          <Route path="/admin" element={<CreateProperty />} />
         </Routes>
       </BrowserRouter>
     </>

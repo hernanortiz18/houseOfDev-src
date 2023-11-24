@@ -8,7 +8,7 @@ import icono from "../assets/img/Group 177.png";
 function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-custom fixed-top">
+      <nav className="navbar navbar-expand-lg bg-admin fixed-top">
         <div className="container-fluid">
           <Link to={"/"} className="nav-link">
             <img src={icono} />
