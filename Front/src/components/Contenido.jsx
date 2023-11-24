@@ -26,61 +26,63 @@ function Contenido() {
   };
 
   return (
-    <div className="container">
-      <Navbar />
-      <div className="form-container">
-        <h2>¿Qué estás buscando?</h2>
-        {/* Aqui empieza el checkbox */}
-        <form onSubmit={handleSubmit}>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="opcionBusqueda"
-              id="alquiler"
-              checked={search === "alquiler"}
-              value="alquiler"
-              onChange={handleOptionBusqueda}
-            />
-            <label className="form-check-label" htmlFor="alquiler">
-              Alquiler
-            </label>
-          </div>
-          <div className="form-check">
-            <input
-              className="form-check-input"
-              type="radio"
-              name="opcionBusqueda"
-              checked={search === "comprar"}
-              id="comprar"
-              value="comprar"
-              onChange={handleOptionBusqueda}
-            />
-            <label className="form-check-label" htmlFor="comprar">
-              Comprar
-            </label>
-          </div>
+    <div className="vista-user">
+      <div className="container">
+        <Navbar />
+        <div className="form-container">
+          <h2>¿Qué estás buscando?</h2>
+          {/* Aqui empieza el checkbox */}
+          <form onSubmit={handleSubmit}>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="opcionBusqueda"
+                id="alquiler"
+                checked={search === "alquiler"}
+                value="alquiler"
+                onChange={handleOptionBusqueda}
+              />
+              <label className="form-check-label" htmlFor="alquiler">
+                Alquiler
+              </label>
+            </div>
+            <div className="form-check">
+              <input
+                className="form-check-input"
+                type="radio"
+                name="opcionBusqueda"
+                checked={search === "comprar"}
+                id="comprar"
+                value="comprar"
+                onChange={handleOptionBusqueda}
+              />
+              <label className="form-check-label" htmlFor="comprar">
+                Comprar
+              </label>
+            </div>
 
-          {/* UBICACION */}
-          <div className="mb-3">
-            <input
-              type="text"
-              className="form-control"
-              placeholder="🔍 Ubicación"
-              // value={ubicacion}
-              // onChange={handleUbicacion}
-            />
-          </div>
-          {/* Boton para ver las propiedades */}
-          <Link to={`/${search}`}>
-            <button type="submit" className="btn btn-primary">
-              Ver Propiedades
-            </button>
-          </Link>
-        </form>
+            {/* UBICACION */}
+            <div className="mb-3">
+              <input
+                type="text"
+                className="form-control"
+                placeholder="🔍 Ubicación"
+                // value={ubicacion}
+                // onChange={handleUbicacion}
+              />
+            </div>
+            {/* Boton para ver las propiedades */}
+            <Link to={`/${search}`}>
+              <button type="submit" className="btn btn-primary">
+                Ver Propiedades
+              </button>
+            </Link>
+          </form>
+        </div>
+
+        {/* mapear */}
       </div>
-
-      {/* mapear */}
     </div>
   );
 }
