@@ -7,9 +7,11 @@ import "../styles/navbar.scss";
 function Navbar() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+      <nav className="navbar navbar-expand-lg bg-custom fixed-top">
         <div className="container-fluid">
-          <Link to={"/"}>House Of Dev</Link>
+          <Link to={"/"} className="nav-link">
+            House Of Dev
+          </Link>
 
           <button
             className="navbar-toggler"
@@ -71,31 +73,7 @@ function Navbar() {
                 </Link>
               </li>
             </ul>
-
-            <form className="d-flex" role="search">
-              <input
-                className="form-control me-2"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <button className="btn btn-outline-success" type="submit">
-                Search
-              </button>
-            </form>
           </div>
-        </div>
-        <div className="d-flex align-items-center">
-          <Link to={"/notificaciones"}>
-            <button type="button" class="btn btn-light mr-3">
-              Notificaciones 🛎️
-            </button>
-          </Link>
-          <Link to={"/favoritos"}>
-            <button type="button" class="btn btn-light">
-              Favoritos ❤️
-            </button>
-          </Link>
         </div>
       </nav>
     </>

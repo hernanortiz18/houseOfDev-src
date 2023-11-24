@@ -11,13 +11,16 @@ const Profile = () => {
   const { email } = user;
 
   useEffect(() => {
-    axios
-      .get(`http://localhost:8000/api/users/profile/?email=${email}`, {
-        withCredentials: true,
-      })
-      .then((res) => res.data)
-      .then((result) => setUserLogin(result))
-      .catch(() => "Usuario no encontrado");
+    if (email) {
+      axios
+        .get(`http://localhost:8000/api/users/profile/?email=${email}`, {
+          withCredentials: true,
+        })
+        .then((res) => res.data)
+        .then((result) => setUserLogin(result))
+        .catch(() => "Usuario no encontrado");
+    }
+    [user];
   });
 
   return (
