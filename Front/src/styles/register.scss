@@ -10,9 +10,11 @@ body {
   position: relative;
   min-height: 100vh;
   min-width: 100%;
-  background-image: url("../assets/img/Thumbnail.png");
+  background: linear-gradient(to right, #fe4236 40%, transparent 40%),
+    url("../assets/img/background-image.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: bottom right;
+  height: 100vh;
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -24,6 +26,7 @@ body {
   form {
     position: absolute;
     left: 40%;
+    margin-top: 15px;
     transform: translate(-50%, -50%);
     z-index: 1;
     background-color: rgba(255, 255, 255, 0.8);
