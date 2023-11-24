@@ -80,5 +80,5 @@ function Navbar() {
     </>
   );
 }
-console.log("nabar");
+
 export default Navbar;
