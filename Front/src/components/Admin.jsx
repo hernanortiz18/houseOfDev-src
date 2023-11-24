@@ -1,5 +1,6 @@
 import React from "react";
-import NavbarAdmin from "../commons/navbaradmin";
+import NavbarAdmin from "../commons/NavbarAdmin";
+
 import "../styles/createproperties.scss";
 import { Link } from "react-router-dom";
 
