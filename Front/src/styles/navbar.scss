@@ -1,27 +1,8 @@
-.navbar {
-  background-color: #3498db; // Azul brillante
-  padding: 1rem;
+/* navbar.scss */
 
-  a {
-    color: #2e54bf; // Color del texto
-    text-decoration: none;
-    font-size: 18px;
-    transition: color 0.3s ease; // Transición de color al hacer hover
-
-    &:hover {
-      color: #2c3e50; // Nuevo color al hacer hover
-    }
-  }
-
-  navbar-brand {
-    font-size: 24px;
-    font-weight: bold;
-    color: #305c67; // Blanco para el texto
-    text-decoration: none;
-  }
+.bg-custom {
+  background-color: rgb(243, 64, 64);
 }
-.dropdown-item {
-  color: #ecf0f1;
-  font-size: 16px;
-  transition: color 0.3s ease; // Transición de color al hacer hover
+.nav-link {
+  color: white;
 }
