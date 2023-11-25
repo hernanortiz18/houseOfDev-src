@@ -7,7 +7,7 @@ function CreateProperty() {
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
   const [number, setNumber] = useState("");
-  const [onSale, setOnsale] = useState("");
+  const [onSale, setOnsale] = useState(false);
   const [price, setPrice] = useState("");
   const [img, setImg] = useState("");
   const [squareMeters, setSquareMeters] = useState("");
@@ -27,7 +27,7 @@ function CreateProperty() {
     setNumber(e.target.value);
   };
   const handleOnsale = (e) => {
-    setOnsale(e.target.value);
+    setOnsale(e.target.value === "Comprar");
   };
   const handlePrice = (e) => {
     setPrice(e.target.value);
@@ -114,12 +114,12 @@ function CreateProperty() {
                 className="form-control"
               ></input>
 
-              <input
+              {/* <input
                 value={onSale}
                 onChange={handleOnsale}
                 placeholder="onSale"
                 className="form-control"
-              ></input>
+              ></input> */}
 
               <input
                 value={price}
@@ -161,26 +161,29 @@ function CreateProperty() {
                   <input
                     className="form-check-input"
                     type="radio"
-                    value="alquiler"
+                    value="Alquiler"
                     onChange={handleOnsale}
+                    // onChange={handleOnsale}
                     placeholder="Alquiler"
-                    id="alquiler"
-                    checked={onSale === "alquiler"}
+                    id="Alquiler"
+                    // checked={onSale === "Alquiler"}
+                    checked={!onSale}
                   />
-                  <label className="form-check-label" htmlFor="alquiler">
+                  <label className="form-check-label" htmlFor="Alquiler">
                     Alquiler
                   </label>
                   <input
                     className="form-check-input"
                     type="radio"
-                    value="comprar"
+                    value="Comprar"
                     onChange={handleOnsale}
-                    placeholder="comprar"
-                    id="comprar"
-                    checked={onSale === "comprar"}
+                    // onChange={handleOnsale}
+                    placeholder="Comprar"
+                    id="Comprar"
+                    checked={onSale}
                   />
-                  <label className="form-check-label" htmlFor="comprar">
-                    comprar
+                  <label className="form-check-label" htmlFor="Comprar">
+                    Comprar
                   </label>
                 </div>
               </div>
