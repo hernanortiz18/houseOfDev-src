@@ -1,8 +1,12 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/profile.scss";
+import { useSelector } from "react-redux";
 
 const CardUser = ({ user }) => {
+  console.log("USER DEL PEDIDO DE CARDUSER&&&&&&&&&&&&&&&&&&&&&&&&&&&&", user);
+  const { email } = user;
+  console.log("''''''''''''''''''''''''EMAIL", email);
   const [edit, setEdit] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -34,15 +38,17 @@ const CardUser = ({ user }) => {
     e.preventDefault();
     axios
       .get("http://localhost:8000/api/users/passwordValidate", {
-        email: userData.email,
-        password: passwordActual,
+        params: {
+          email: email,
+          password: passwordActual,
+        },
       })
       .then((result) => {
         if (!result) return "contraseña incorrecta";
         else {
           axios
             .put(
-              `http://localhost:8000/api/users/update/?userEmail=${userData.email}`,
+              `http://localhost:8000/api/users/update/?userEmail=${user.email}`,
               {
                 name: userData.name,
                 lastName: userData.lastName,
@@ -52,12 +58,11 @@ const CardUser = ({ user }) => {
               },
               { withCredenials: true }
             )
-            .then((res) => res.data);
+            .then((res) => res.data)
+            .then(() => setEdit(!edit));
         }
       });
   };
-
-  console.log(userData);
 
   return (
     <div className="container-gral">
