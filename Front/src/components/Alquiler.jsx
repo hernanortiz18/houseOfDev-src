@@ -7,9 +7,11 @@ function Alquiler() {
   const search = "alquiler";
   return (
     <>
-      <Navbar />
-      <h2>Propiedades en Alquiler</h2>
-      <Property search={search} />
+      <div className="container alquiler">
+        <Navbar />
+        <h2 className="mt-4 mb-4">Propiedades en Alquiler</h2>
+        <Property search={search} />
+      </div>
     </>
   );
 }
