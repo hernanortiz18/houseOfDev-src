@@ -7,9 +7,11 @@ function Venta() {
   const search = "comprar";
   return (
     <>
-      <Navbar />
-      <h2>Propiedades en Venta</h2>
-      <Property search={search} />
+      <div className="container venta">
+        <Navbar />
+        <h2>Propiedades en Venta</h2>
+        <Property search={search} />
+      </div>
     </>
   );
 }

@@ -1,12 +1,23 @@
-.properties {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ddf;
-  margin-top: 80px;
-  width: 500px;
-  height: 80vh;
-  padding: 100px;
-  align-items: center;
-}
+// /* properties.scss */
+
+// .card {
+//   border: 1px solid #ddd; /* Añade un borde a las tarjetas */
+//   border-radius: 8px; /* Hace que las esquinas sean redondeadas */
+//   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añade una sombra suave */
+// }
+
+// .card-body {
+//   padding: 20px; /* Espaciado interno dentro del cuerpo de la tarjeta */
+// }
+
+// .card-subtitle {
+//   color: #777; /* Color de texto más claro para subtítulos */
+// }
+
+// .card-img-top {
+//   width: 100%; /* Asegura que la imagen se ajuste al ancho de la tarjeta */
+//   border-top-left-radius: 8px; /* Hace que las esquinas superiores izquierdas de la imagen sean redondeadas */
+//   border-top-right-radius: 8px; /* Hace que las esquinas superiores derechas de la imagen sean redondeadas */
+// }
+
+// /* Agrega más reglas CSS según sea necesario */
