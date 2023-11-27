@@ -9,7 +9,6 @@ const Profile = () => {
 
   const user = useSelector((state) => state.user);
   const { email } = user;
-  console.log("¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ USER", user);
 
   useEffect(() => {
     if (email) {
