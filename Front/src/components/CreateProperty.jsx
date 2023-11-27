@@ -85,32 +85,34 @@ function CreateProperty() {
         <div class="row">
           <div class="col">
             <form onSubmit={handleSubmit} className="row g-3">
-              <h1>Nueva Propiedad</h1>
+              <h1 className="titulo">Nueva Propiedad</h1>
+              <label className="label">Provincia</label>
               <input
                 value={province}
                 onChange={handleProvince}
-                placeholder="province"
+                placeholder="Provincia"
                 className="form-control"
               ></input>
 
+              <label className="label">Ciudad</label>
               <input
                 value={city}
                 onChange={handleCity}
-                placeholder="city"
+                placeholder="Ciudad"
                 className="form-control"
               ></input>
-
+              <label className="label">Dirección</label>
               <input
                 value={address}
                 onChange={handleAddress}
-                placeholder="address"
+                placeholder="Dirección"
                 className="form-control"
               ></input>
-
+              <label className="label">Numero de dirreción</label>
               <input
                 value={number}
                 onChange={handleNumber}
-                placeholder="number"
+                placeholder="Numero de dirreción"
                 className="form-control"
               ></input>
 
@@ -120,38 +122,39 @@ function CreateProperty() {
                 placeholder="onSale"
                 className="form-control"
               ></input> */}
-
+              <label className="label">Precio</label>
               <input
                 value={price}
                 onChange={handlePrice}
-                placeholder="price"
+                placeholder="Precio"
                 className="form-control"
               ></input>
-
+              <label className="label">Imagen</label>
               <input
                 value={img}
                 onChange={handleImage}
-                placeholder="img"
+                placeholder="Imagen"
                 className="form-control"
               ></input>
-
+              <label className="label">Metros Cuadrados</label>
               <input
                 value={squareMeters}
                 onChange={handleSquareMeters}
-                placeholder="squareMeters"
+                placeholder="Metros Cuadrados"
                 className="form-control"
               ></input>
-
+              <label className="label">Baños</label>
               <input
                 value={bathrooms}
                 onChange={handleBathrooms}
-                placeholder="bathrooms"
+                placeholder="Baños"
                 className="form-control"
               ></input>
+              <label className="label">Habitaciones</label>
               <input
                 value={bedrooms}
                 onChange={handleBedrooms}
-                placeholder="bedrooms"
+                placeholder="Habitaciones"
                 className="form-control"
               ></input>
               <br />
@@ -187,7 +190,7 @@ function CreateProperty() {
                   </label>
                 </div>
               </div>
-              <button type="submit" className="btn btn-success mx-2">
+              <button type="submit" className="btn btn-success registrar">
                 Registrar Nueva Propiedad
               </button>
             </form>
@@ -199,16 +202,3 @@ function CreateProperty() {
 }
 
 export default CreateProperty;
-
-// {
-//   "province": "Córdoba",
-//   "city": "Alpa Corral",
-//   "adress": "436",
-//   "number": "651",
-//   "onSale": "true",
-//   "price": "700",
-//   "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKCVRr7ZCbUy20ngTArBtw2bs-TrB6THUeLg&usqp=CAU",
-//   "squareMeters":"34",
-//   "bathrooms":"2",
-//   "bedrooms":"2"
-// }
