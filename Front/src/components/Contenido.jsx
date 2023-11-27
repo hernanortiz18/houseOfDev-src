@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 
 import "../styles/contenido.scss";
-import { Link } from "react-router-dom";
+import { Link, Routes } from "react-router-dom";
 import axios from "axios";
 import Navbar from "../commons/Navbar";
 
 function Contenido() {
   const [search, setSearch] = useState("");
   const [searchResult, setSearchResult] = useState([]);
-  // const [ubicacion, setUbicacion] = useState("");
+  const [ubicacion, setUbicacion] = useState("");
 
   const handleOptionBusqueda = (e) => {
     setSearch(e.target.value);
   };
 
-  // const handleUbicacion = (e) => {
-  //   setUbicacion(e.target.value);
-  // };
+  const handleUbicacion = (e) => {
+    setUbicacion(e.target.value);
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -69,12 +69,12 @@ function Contenido() {
                 type="text"
                 className="form-control"
                 placeholder="🔍 Ubicación"
-                // value={ubicacion}
-                // onChange={handleUbicacion}
+                value={ubicacion}
+                onChange={handleUbicacion}
               />
             </div>
             {/* Boton para ver las propiedades */}
-            <Link to={`/${search}`}>
+            <Link to={`/${search}/${ubicacion}`}>
               <button type="submit" className="btn btn-primary">
                 Ver Propiedades
               </button>

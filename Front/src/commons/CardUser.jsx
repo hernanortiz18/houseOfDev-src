@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import "../styles/profile.scss";
 
 const CardUser = ({ user }) => {
   const [edit, setEdit] = useState(false);
@@ -7,7 +8,7 @@ const CardUser = ({ user }) => {
   const [userData, setUserData] = useState({
     name: "",
     lastName: "",
-    phone: "",
+    phone: 0,
     email: "",
     password: "",
   });
@@ -40,7 +41,7 @@ const CardUser = ({ user }) => {
         if (!result) return "contraseña incorrecta";
         else {
           axios
-            .post(
+            .put(
               `http://localhost:8000/api/users/update/?userEmail=${userData.email}`,
               {
                 name: userData.name,
@@ -55,24 +56,27 @@ const CardUser = ({ user }) => {
         }
       });
   };
+
+  console.log(userData);
+
   return (
-    <>
+    <div className="container-gral">
       <button onClick={handleClick}>
         <i></i> EDITAR
       </button>
       {!edit && (
-        <div>
+        <div className="profile-container">
           <div className="userProfile">
             <h1>Datos personales</h1>
             <div className="informacion">
-              <h3>NOMBRE COMPLETO</h3>
-              <p>
+              <p>NOMBRE COMPLETO</p>
+              <h3>
                 {user.name} {user.lastName}
-              </p>
-              <h3>TELÉFONO</h3>
-              <p>{user.phone}</p>
-              <h3>E-MAIL</h3>
-              <p>{user.email}</p>
+              </h3>
+              <p>TELÉFONO</p>
+              <h3>{user.phone}</h3>
+              <p>E-MAIL</p>
+              <h3>{user.email}</h3>
             </div>
           </div>
         </div>
@@ -91,6 +95,7 @@ const CardUser = ({ user }) => {
                 placeholder="NAME"
                 onChange={handleChange}
               />
+              <br />
               <input
                 type="text"
                 value={userData.lastName}
@@ -119,6 +124,7 @@ const CardUser = ({ user }) => {
               <br />
               <h3>CHANGE E-MAIL</h3>
               <label htmlFor="passwordActual">PASSWORD ACTUAL</label>
+              <br />
               <input
                 type="password"
                 name="passwordActual"
@@ -128,6 +134,7 @@ const CardUser = ({ user }) => {
               />
               <br />
               <label htmlFor="password">PASSWORD NUEVA</label>
+              <br />
               <input
                 type="password"
                 name="password"
@@ -141,7 +148,7 @@ const CardUser = ({ user }) => {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 
