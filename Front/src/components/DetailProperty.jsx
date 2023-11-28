@@ -15,7 +15,7 @@ const DetailProperty = () => {
       .then((res) => res.data)
       .then((thisProperty) => setData(thisProperty));
   }, []);
-
+  //esta es la vista individual de la propiedad
   return (
     <>
       <Navbar />

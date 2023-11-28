@@ -7,12 +7,13 @@ import { useParams } from "react-router";
 function Alquiler() {
   const search = "alquiler";
   const { ubicacion } = useParams();
-
+  // const ubicacion = "debugueando";
+  console.log("xxxxxxxxxxxxxx", ubicacion);
   return (
     <>
       <div className="container alquiler">
         <Navbar />
-        <h2 className="mt-4 mb-4">Propiedades en Alquiler</h2>
+        <h2 className="titulo">Propiedades en Alquiler</h2>
         <Property search={search} ubicacion={ubicacion} />
       </div>
     </>

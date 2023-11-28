@@ -1,0 +1,47 @@
+.contenedor {
+  display: flex;
+  justify-content: center;
+
+  width: 900px;
+  height: 450px;
+}
+
+.imagenPropiedad {
+  width: 400px;
+  height: 300px;
+
+  margin-right: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  width: 1000px;
+  height: 300px;
+}
+
+.info > div {
+  margin-bottom: 10px; /* Espaciado entre las secciones de información */
+}
+
+.info h6 {
+  margin-bottom: 5px;
+  font-size: 0.9rem; /* Ajusta el tamaño del subtítulo según tus necesidades */
+}
+
+.info p {
+  margin: 0;
+}
+.div-info {
+  display: flex;
+  align-items: center;
+
+  margin: 2px;
+  width: 100%;
+}
+.parrafo {
+  font-size: 20px;
+}
+.titulos {
+  font-weight: bold;
+}
