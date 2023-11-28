@@ -1,14 +1,14 @@
 .contenedor {
+  margin: 0 auto;
   display: flex;
   justify-content: center;
-
-  width: 900px;
-  height: 450px;
+  width: 400px;
+  min-height: 100px;
 }
 
 .imagenPropiedad {
   width: 400px;
-  height: 300px;
+  height: 330px;
 
   margin-right: 20px;
 }
@@ -16,12 +16,9 @@
 .info {
   display: flex;
   flex-direction: column;
-  width: 1000px;
-  height: 300px;
-}
 
-.info > div {
-  margin-bottom: 10px; /* Espaciado entre las secciones de información */
+  width: 1042px;
+  height: 300px;
 }
 
 .info h6 {
@@ -34,14 +31,80 @@
 }
 .div-info {
   display: flex;
+  justify-content: center;
   align-items: center;
-
-  margin: 2px;
-  width: 100%;
+  // border-right: 1px solid black;
+  border: 1px solid black;
+  width: 245px;
+  height: 76px;
+  padding: 10px;
 }
 .parrafo {
   font-size: 20px;
 }
 .titulos {
   font-weight: bold;
+  padding: 0;
+}
+
+.div-uno {
+  display: flex;
+  width: 500px;
+  height: 75px;
+}
+
+.div-dos {
+  display: flex;
+  justify-content: space-evenly;
+  // border: 1px solid black;
+  padding: 5px;
+  width: 580px;
+  height: 80px;
+}
+.div-tres {
+  border: 1px solid black;
+  height: 114px;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.div-cuatro {
+  display: flex;
+  justify-content: space-around;
+  border: 1px solid black;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 114px;
+}
+.div-dos .datas {
+  margin-right: 20px;
+  margin-left: 10px;
+}
+h5 {
+  margin-left: 4px;
+}
+p {
+  padding: 10px;
+}
+
+.fa-solid {
+  margin-left: 10px;
+}
+.datas {
+  width: 100%;
+}
+.primerCuadrado {
+  width: 203px;
+  display: flex;
+}
+
+//////////////
+.tituloAlquiler {
+  height: 100px;
+  // margin-top: 6250px;
+  // background-color: red;
+}
+.h2 {
+  margin-top: 50px;
 }

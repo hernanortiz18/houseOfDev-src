@@ -3,6 +3,7 @@ import Navbar from "../commons/Navbar";
 import "../styles/alquiler.scss";
 import Property from "./Property";
 import { useParams } from "react-router";
+import Carrusel from "../commons/Carrusel";
 
 function Alquiler() {
   const search = "alquiler";
@@ -11,10 +12,12 @@ function Alquiler() {
   console.log("xxxxxxxxxxxxxx", ubicacion);
   return (
     <>
-      <div className="container alquiler">
-        <Navbar />
-        <h2 className="titulo">Propiedades en Alquiler</h2>
-        <Property search={search} ubicacion={ubicacion} />
+      <div className="container">
+        <div className="container-fluid vh-100 alquiler">
+          <Navbar />
+          <Carrusel />
+          <Property search={search} ubicacion={ubicacion} />
+        </div>
       </div>
     </>
   );
