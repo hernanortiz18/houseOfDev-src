@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/profile.scss";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const CardUser = ({ user }) => {
-  console.log("USER DEL PEDIDO DE CARDUSER&&&&&&&&&&&&&&&&&&&&&&&&&&&&", user);
+  const navigate = useNavigate();
   const { email } = user;
-  console.log("''''''''''''''''''''''''EMAIL", email);
   const [edit, setEdit] = useState(false);
 
   const [userData, setUserData] = useState({
@@ -44,6 +44,7 @@ const CardUser = ({ user }) => {
         },
       })
       .then((result) => {
+        console.log("SALIÓ");
         if (!result) return "contraseña incorrecta";
         else {
           axios
@@ -54,12 +55,15 @@ const CardUser = ({ user }) => {
                 lastName: userData.lastName,
                 phone: userData.phone,
                 email: userData.email,
-                password: passwordActual,
-              },
-              { withCredenials: true }
+                password: userData.email,
+              }
             )
             .then((res) => res.data)
-            .then(() => setEdit(!edit));
+            .then(() => {
+              axios
+                .post("http://localhost:8000/api/users/logout")
+                .then(() => navigate("/login"));
+            });
         }
       });
   };

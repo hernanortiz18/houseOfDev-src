@@ -9,7 +9,6 @@ const Profile = () => {
 
   const user = useSelector((state) => state.user);
   const { email } = user;
-  console.log("¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿¿ USER", user);
 
   useEffect(() => {
     if (email) {
@@ -21,8 +20,7 @@ const Profile = () => {
         .then((result) => setUserLogin(result))
         .catch(() => "Usuario no encontrado");
     }
-    [user];
-  });
+  }, [user]);
 
   return (
     <>
