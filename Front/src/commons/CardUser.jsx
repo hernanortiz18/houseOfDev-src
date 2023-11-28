@@ -2,8 +2,10 @@ import { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/profile.scss";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const CardUser = ({ user }) => {
+  const navigate = useNavigate();
   const { email } = user;
   const [edit, setEdit] = useState(false);
 
@@ -57,7 +59,11 @@ const CardUser = ({ user }) => {
               }
             )
             .then((res) => res.data)
-            .then(() => setEdit(!edit));
+            .then(() => {
+              axios
+                .post("http://localhost:8000/api/users/logout")
+                .then(() => navigate("/login"));
+            });
         }
       });
   };

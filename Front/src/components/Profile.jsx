@@ -20,8 +20,7 @@ const Profile = () => {
         .then((result) => setUserLogin(result))
         .catch(() => "Usuario no encontrado");
     }
-    [user];
-  });
+  }, [user]);
 
   return (
     <>
