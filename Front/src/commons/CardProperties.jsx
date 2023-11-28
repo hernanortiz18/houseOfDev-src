@@ -1,13 +1,14 @@
 import UserProperty from "./UserProperty";
 import { Link } from "react-router-dom";
 
+//GRID
 const CardProperties = ({ property }) => {
   return (
-    <div className="container">
-      <div className="d-flex flex-row flex-wrap">
+    <div className="containerGrilla">
+      <div className="row">
         {property.length &&
           property.map((data, i) => (
-            <div className="col-md-4 mb-4" key={i}>
+            <div className="" key={i}>
               <div className="card">
                 <Link to={`propiedades/${data.id}`}>
                   <UserProperty data={data} />

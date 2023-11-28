@@ -9,7 +9,8 @@ const Property = ({ search, ubicacion }) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/properties/${search}?ubicacion=${ubicacion}`,
+        `http://localhost:8000/api/properties/${search}`,
+        { params: { ubicacion: `${ubicacion}` } },
         {
           withCredentials: true,
         }
