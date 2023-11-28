@@ -1,29 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+
 import NavbarAdmin from "../commons/NavbarAdmin";
 import "../styles/createproperties.scss";
-import UserProperty from "../commons/UserProperty";
-import { Link } from "react-router-dom";
+import CardProperties from "../commons/CardProperties";
+import axios from "axios";
 
 //Renderizamos las propiedades en admin!
-const Admin = ({ property }) => {
+const Admin = ({ search, ubicacion }) => {
+  const [property, setProperty] = useState([]);
+  useEffect(() => {
+    axios
+      .get(
+        `http://localhost:8000/api/properties/${search}`
+        // { params: { ubicacion: `${ubicacion}` } },
+        // {
+        //   withCredentials: true,
+        // }
+      )
+      .then((res) => res.data)
+      .then((properties) => setProperty(properties))
+      .catch(() => "Propiedad no encontrada");
+  }, []);
+
   return (
     <>
       <NavbarAdmin />
-
-      {/* <div className="container">
-        <div className="d-flex flex-row flex-wrap">
-          {property.length &&
-            property.map((data, i) => (
-              <div className="col-md-4 mb-4" key={i}>
-                <div className="card">
-                  <Link to={`propiedades/${data.id}`}>
-                    <UserProperty data={data} />
-                  </Link>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div> */}
+      <CardProperties property={property} />
     </>
   );
 };
