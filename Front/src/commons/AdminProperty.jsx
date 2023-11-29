@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/properties.scss";
+import "../styles/AdminProperties.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+
+import axios from "axios";
 
 //carrusel
 
-function UserProperty({ data }) {
+function AdminProperty({ data }) {
+  const navigate = useNavigate();
+  const handleDelete = (e) => {
+    e.preventDefault();
+    axios
+      .get(`http://localhost:8000/api/properties/admin/${data.id}`)
+      .then((res) => {
+        navigate("http://localhost:8000/api/properties/admin/");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
   return (
     <>
       <div className="contenedor">
@@ -63,7 +78,7 @@ function UserProperty({ data }) {
                 <i className="bi bi-heart-fill"></i>
               </Button>
             </Link>
-            <Link to={"contactate"}>
+            <Link to={"/contactate"}>
               <Button variant="outline-primary">
                 <i class="bi bi-telephone-fill"></i>
               </Button>
@@ -71,6 +86,10 @@ function UserProperty({ data }) {
             <Link to={"/vermas"}>
               <Button variant="outline-primary ">VER MÁS</Button>
             </Link>
+
+            <Button variant="outline-primary" onClick={handleDelete}>
+              <i class="fa-solid fa-trash-can"></i>
+            </Button>
           </div>
         </div>
       </div>
@@ -78,4 +97,4 @@ function UserProperty({ data }) {
   );
 }
 
-export default UserProperty;
+export default AdminProperty;
