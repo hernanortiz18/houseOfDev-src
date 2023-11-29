@@ -1,29 +1,25 @@
-.contenedor {
-  margin: 0 auto;
+.contenedorPropiedades {
   display: flex;
-  justify-content: center;
-  width: 400px;
+  width: 707px;
   min-height: 100px;
   border: 1px solid black;
-  width: 990px;
+  background-color: aliceblue;
 }
 
 .imagenPropiedad {
-  width: 400px;
-  height: 330px;
+  width: 293px;
+  height: 200px;
+}
+.imagen {
+  display: flex;
+  align-items: center;
 }
 
 .info {
   display: flex;
   flex-direction: column;
-
   width: 1042px;
   height: 330px;
-}
-
-.info h6 {
-  margin-bottom: 5px;
-  font-size: 0.9rem; /* Ajusta el tamaño del subtítulo según tus necesidades */
 }
 
 .div-info {
@@ -32,30 +28,48 @@
   align-items: center;
   // border-right: 1px solid black;
   border: 1px solid black;
-  width: 245px;
+  width: 143px;
   height: 76px;
   padding: 10px;
 }
+.lugar {
+  margin-left: 100px;
+  display: flex;
+}
+
 .parrafo {
   font-size: 20px;
+  margin-left: 120px;
+  text-align: center;
+  align-items: center;
 }
 .titulos {
   font-weight: bold;
+  display: flex;
+  justify-content: center;
 }
-
+.div-info-uno {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 220px;
+  margin-left: 25px;
+}
 .div-uno {
   display: flex;
   width: 500px;
   height: 75px;
+  width: 100px;
 }
 
 .div-dos {
   display: flex;
-  justify-content: space-evenly;
+
   // border: 1px solid black;
   padding: 5px;
-  width: 580px;
+
   height: 80px;
+  width: 418px;
 }
 .div-tres {
   border: 1px solid black;
@@ -63,6 +77,7 @@
   padding: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  width: 408px;
 }
 .div-cuatro {
   display: flex;
@@ -72,24 +87,19 @@
   margin-left: 5px;
   margin-right: 5px;
   height: 114px;
+  width: 408px;
 }
-.div-dos .datas {
-  margin-right: 20px;
-  margin-left: 10px;
-}
-h5 {
-  margin-left: 4px;
-}
-p {
-  padding: 10px;
-}
+// .div-dos .datas {
+//   margin-right: 20px;
+//   margin-left: 10px;
+// }
 
 .fa-solid {
   margin-left: 10px;
 }
-.datas {
-  width: 100%;
-}
+// .datas {
+//   width: 100%;
+// }
 .primerCuadrado {
   width: 203px;
   display: flex;
