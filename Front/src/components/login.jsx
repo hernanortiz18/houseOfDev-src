@@ -5,9 +5,12 @@ import "../styles/login.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../commons/Navbar";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setUser } from "../redux/user";
 
 function Login() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -30,7 +33,7 @@ function Login() {
         },
         { withCredentials: true }
       )
-      .then((res) => res.data)
+      .then((res) => dispatch(setUser(res.data)))
       .then(() => {
         setPassword("");
         setEmail("");
