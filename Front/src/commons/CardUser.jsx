@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/profile.scss";
-import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
+import { setUser } from "../redux/user";
 
 const CardUser = ({ user }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const { email } = user;
   const [edit, setEdit] = useState(false);
   const [newPass, setNewPass] = useState(false);
@@ -46,12 +48,16 @@ const CardUser = ({ user }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .put(`http://localhost:8000/api/users/update/?userEmail=${user.email}`, {
-        name: userData.name,
-        lastName: userData.lastName,
-        phone: userData.phone,
-      })
-      .then((res) => res.data)
+      .put(
+        `http://localhost:8000/api/users/update/?userEmail=${email}`,
+        {
+          name: userData.name,
+          lastName: userData.lastName,
+          phone: userData.phone,
+        },
+        { withCredentials: true }
+      )
+      .then((res) => dispatch(setUser(res.data)))
       .then(() => {
         setEdit(!edit);
       });
@@ -180,7 +186,7 @@ const CardUser = ({ user }) => {
             <input
               type="password"
               name="nuevaPassword"
-              value={password.nuevaPassworrd}
+              value={password.nuevaPassword}
               placeholder="ESCRIBA SU PASSWORD NUEVA"
               onChange={handleChangePass}
             />
