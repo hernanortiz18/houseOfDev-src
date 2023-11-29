@@ -8,23 +8,25 @@ const CardUser = ({ user }) => {
   const navigate = useNavigate();
   const { email } = user;
   const [edit, setEdit] = useState(false);
+  const [newPass, setNewPass] = useState(false);
 
   const [userData, setUserData] = useState({
     name: "",
     lastName: "",
     phone: 0,
-    email: "",
-    password: "",
   });
 
-  const [passwordActual, setPasswordActual] = useState("");
+  const [password, setPassword] = useState({
+    passwordActual: "",
+    nuevaPassworrd: "",
+  });
 
   const handleClick = (e) => {
     setEdit(!edit);
   };
 
-  const handlePasswordActual = (e) => {
-    setPasswordActual(e.target.value);
+  const handleClickPass = (e) => {
+    setNewPass(!newPass);
   };
 
   const handleChange = (e) => {
@@ -34,7 +36,28 @@ const CardUser = ({ user }) => {
     });
   };
 
+  const handleChangePass = (e) => {
+    setPassword({
+      ...password,
+      [e.target.name]: e.target.value,
+    });
+  };
+
   const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(`http://localhost:8000/api/users/update/?userEmail=${user.email}`, {
+        name: userData.name,
+        lastName: userData.lastName,
+        phone: userData.phone,
+      })
+      .then((res) => res.data)
+      .then(() => {
+        setEdit(!edit);
+      });
+  };
+
+  const handleSubmitPass = (e) => {
     e.preventDefault();
     axios
       .get("http://localhost:8000/api/users/passwordValidate", {
@@ -49,13 +72,9 @@ const CardUser = ({ user }) => {
         else {
           axios
             .put(
-              `http://localhost:8000/api/users/update/?userEmail=${user.email}`,
+              `http://localhost:8000/api/users/updatePass/?userEmail=${user.email}`,
               {
-                name: userData.name,
-                lastName: userData.lastName,
-                phone: userData.phone,
-                email: userData.email,
-                password: userData.email,
+                password: nuevaPassworrd,
               }
             )
             .then((res) => res.data)
@@ -70,9 +89,14 @@ const CardUser = ({ user }) => {
 
   return (
     <div className="container-gral">
-      <button onClick={handleClick}>
+      <button onClick={handleClick} className="editButton">
         <i></i> EDITAR
       </button>
+
+      <button onClick={handleClickPass} className="passButton">
+        <i></i> CAMBIAR PASSWORD
+      </button>
+      <br />
       {!edit && (
         <div className="profile-container">
           <div className="userProfile">
@@ -127,35 +151,43 @@ const CardUser = ({ user }) => {
                 type="text"
                 value={userData.email}
                 name="email"
-                placeholder="EMAIL"
-                onChange={handleChange}
+                placeholder={user.email}
+                disabled
               />
               <br />
-              <h3>CHANGE E-MAIL</h3>
-              <label htmlFor="passwordActual">PASSWORD ACTUAL</label>
-              <br />
-              <input
-                type="password"
-                name="passwordActual"
-                value={passwordActual}
-                placeholder="ESCRIBA SU PASSWORD ACTUAL"
-                onChange={handlePasswordActual}
-              />
-              <br />
-              <label htmlFor="password">PASSWORD NUEVA</label>
-              <br />
-              <input
-                type="password"
-                name="password"
-                value={userData.password}
-                placeholder="ESCRIBA SU PASSWORD NUEVA"
-                onChange={handleChange}
-              />
 
               <button type="submit">GUARDAR</button>
             </form>
           </div>
         </div>
+      )}
+      {newPass && (
+        <>
+          <form onSubmit={handleSubmitPass} className="informacion">
+            <label htmlFor="passwordActual">PASSWORD ACTUAL</label>
+            <br />
+            <input
+              type="password"
+              name="passwordActual"
+              value={password.passwordActual}
+              placeholder="ESCRIBA SU PASSWORD ACTUAL"
+              onChange={handleChangePass}
+            />
+            <br />
+
+            <label htmlFor="password">PASSWORD NUEVA</label>
+            <br />
+            <input
+              type="password"
+              name="nuevaPassword"
+              value={password.nuevaPassworrd}
+              placeholder="ESCRIBA SU PASSWORD NUEVA"
+              onChange={handleChangePass}
+            />
+            <br />
+            <button type="submit">GUARDAR</button>
+          </form>
+        </>
       )}
     </div>
   );

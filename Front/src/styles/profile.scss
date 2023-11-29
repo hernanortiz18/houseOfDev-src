@@ -2,54 +2,63 @@
   margin-left: 20px;
   width: 100vw;
 
-  button {
+  .editButton {
     display: block;
     border: solid 1px #333;
-    border-radius: 0 999px 999px 0;
+    border-radius: 999px;
     position: absolute;
-    height: 74px;
+    height: 50px;
+    margin: 70px 0 70px 0;
+  }
+  .passButton {
+    display: block;
+    border: solid 1px #333;
+    border-radius: 999px;
+    position: absolute;
+    height: 50px;
+    margin: 70px 0 70px 120px;
   }
   button:hover {
     background-color: #ddd;
   }
 
-  .profile-container {
-    width: 100vw;
-    text-align: center;
-    .userProfile {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      width: 100%;
-      height: 100vh;
-      margin-top: 70px;
-      p {
-        text-align: left;
-        width: 60vw;
-        text-decoration: underline;
-      }
-    }
-  }
-  input {
-    border: solid 2px #333;
-    border-radius: 999px;
-    margin: 5px;
-    text-align: center;
-    max-width: 500px;
-  }
+  //   .profile-container {
+  //     width: 100vw;
+  //     text-align: center;
+  //     .userProfile {
+  //       display: flex;
+  //       flex-direction: column;
+  //       align-items: center;
+  //       width: 100%;
+  //       margin-top: 75px;
+  //       p {
+  //         text-align: left;
+  //         width: 60vw;
+  //         text-decoration: underline;
+  //       }
+  //     }
+  //   }
+  //   input {
+  //     border: solid 2px #333;
+  //     border-radius: 999px;
+  //     margin: 5px;
+  //     text-align: center;
+  //     max-width: 500px;
+  //   }
 
-  h1 {
-    display: block;
-    text-decoration: underline;
-    border: solid 1.2px #333;
-    width: 100%;
-    text-align: center;
-    margin: 0 auto;
-    padding: 8px;
-  }
-  h3 {
-    text-align: center;
-    border: solid 1px #000;
-    border-radius: 12px;
-  }
+  //   h1 {
+  //     display: block;
+  //     text-decoration: underline;
+  //     border: solid 1.2px #333;
+  //     max-width: 700px;
+  //     text-align: center;
+  //     margin: 0 auto;
+  //     padding: 8px;
+  //   }
+  //   h3 {
+  //     text-align: center;
+  //     border: solid 1px #000;
+  //     border-radius: 12px;
+  //   }
+  // }
 }
