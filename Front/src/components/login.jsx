@@ -35,9 +35,7 @@ function Login() {
         setPassword("");
         setEmail("");
       })
-      .then(() => {
-        axios.then(() => navigate("/contenido"));
-      });
+      .then(() => navigate("/contenido"));
   };
 
   return (
