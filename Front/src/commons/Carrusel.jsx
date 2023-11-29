@@ -4,7 +4,6 @@ import "../styles/carrusel.scss";
 function Carrusel() {
   return (
     <div className="carrusel">
-      <h1>Propiedades en Alquiler</h1>
       <div
         id="carouselExampleFade"
         className="carousel slide carousel-fade"

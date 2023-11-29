@@ -27,7 +27,7 @@ function CreateProperty() {
     setNumber(e.target.value);
   };
   const handleOnsale = (e) => {
-    setOnsale(e.target.value === "Comprar");
+    setOnsale(!onSale);
   };
   const handlePrice = (e) => {
     setPrice(e.target.value);
@@ -71,6 +71,7 @@ function CreateProperty() {
         setAddress("");
         setNumber("");
         setOnsale("");
+        setPrice("");
         setImg("");
         setSquareMeters("");
         setBathrooms("");

@@ -12,10 +12,12 @@ function Venta() {
   return (
     <>
       <div className="container comprar">
-        <Navbar />
-        <Carrusel />
-        <h2 className="tituloVenta">Propiedades en venta</h2>
-        <Property search={search} ubicacion={ubicacion} />
+        <div className="container-fluid vh-100 alquiler">
+          <Navbar />
+          <Carrusel />
+
+          <Property search={search} ubicacion={ubicacion} />
+        </div>
       </div>
     </>
   );
