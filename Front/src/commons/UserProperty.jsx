@@ -11,40 +11,40 @@ import { Link } from "react-router-dom";
 function UserProperty({ data }) {
   return (
     <>
-      <div className="contenedor">
+      <div className="contenedorPropiedades">
         <div className="imagen">
           <img src={data?.img} alt="Property" className="imagenPropiedad" />
         </div>
         <div className="info">
           <div className="div-uno">
-            <div className="div-info">
+            <div className="div-info-uno">
               <div className="primerCuadrado">
-                <h5 className="titulos">$ </h5>
-                <h5 className="margen">{data?.price}</h5>
+                <p className="titulos">$ </p>
+                <p className="margen">{data?.price}</p>
+                <div className="lugar">
+                  {/* <p className="titulos"> */}
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <p className="parrafoLugar">{data?.province}</p>
+                  {/* </p> */}
+                </div>
               </div>
             </div>
-            <div className="div-info">
-              <h5 className="titulos">
-                <i class="bi bi-geo-alt-fill"></i>
-              </h5>
-              <h5 className="parrafo">{data?.province}</h5>
-            </div>
           </div>
-          {/* El div- dos */}
+
           <div className="div-dos">
             <div className="div-info">
               <i class="fa-solid fa-ruler-combined"></i>
-              <h5 className="datas">{data?.squareMeters}</h5>
-              <h5 className="titulos">M </h5>
+              <p className="datas">{data?.squareMeters}</p>
+              <p className="titulos">M </p>
             </div>
             <div className="div-info">
-              <h5 className="datas">{data?.bedrooms}</h5>
-              <h5 className="titulos">Habitaciones </h5>
+              <p className="datas">{data?.bedrooms}</p>
+              <p className="titulos">Habitaciones </p>
               <i class="fa-solid fa-bed"></i>
             </div>
             <div className="div-info">
-              <h5 className="datas">{data?.bathrooms}</h5>
-              <h5 className="titulos">Baños</h5>
+              <p className="datas">{data?.bathrooms}</p>
+              <p className="titulos">Baños</p>
               <i class="fa-solid fa-bath"></i>
             </div>
           </div>

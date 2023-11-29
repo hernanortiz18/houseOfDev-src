@@ -12,7 +12,7 @@ function Alquiler() {
   console.log("xxxxxxxxxxxxxx", ubicacion);
   return (
     <>
-      <div className="container-fluid vh-100 alquiler">
+      <div className="">
         <Navbar />
         <Carrusel />
         <Property search={search} ubicacion={ubicacion} />
