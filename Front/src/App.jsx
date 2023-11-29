@@ -45,11 +45,7 @@ function App() {
           <Route path="/alquiler/:ubicacion" element={<Alquiler />} />
           <Route path="/comprar/:ubicacion" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
-          <Route
-            path="/alquiler/propiedades/:id"
-            element={<DetailProperty />}
-          />
-          <Route path="/comprar/propiedades/:id" element={<DetailProperty />} />
+          <Route path="/propiedades/:id" element={<DetailProperty />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/crearPropiedades" element={<CreateProperty />} />
         </Routes>

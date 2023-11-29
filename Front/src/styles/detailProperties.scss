@@ -1,0 +1,12 @@
+.properties {
+  display: flex;
+  width: 100vw;
+  .image-property {
+    width: 70%;
+    image-rendering: auto;
+  }
+  .info-property {
+    display: flex;
+    flex-direction: column;
+  }
+}

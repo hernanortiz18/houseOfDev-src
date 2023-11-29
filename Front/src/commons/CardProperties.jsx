@@ -10,9 +10,7 @@ const CardProperties = ({ property }) => {
         {property.length &&
           property.map((data, i) => (
             <div className="col" key={i}>
-              <Link to={`propiedades/${data.id}`}>
-                <UserProperty data={data} />
-              </Link>
+              <UserProperty data={data} />
             </div>
           ))}
       </div>

@@ -68,7 +68,7 @@ function UserProperty({ data }) {
                 <i class="bi bi-telephone-fill"></i>
               </Button>
             </Link>
-            <Link to={"/vermas"}>
+            <Link to={`/propiedades/${data.id}`}>
               <Button variant="outline-primary ">VER MÁS</Button>
             </Link>
           </div>
