@@ -6,11 +6,14 @@ import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/detailProperties.scss";
+import { useSelector } from "react-redux/es/hooks/useSelector";
 
 const DetailProperty = () => {
   const [data, setData] = useState({});
   const [visitDate, setVisitDate] = useState(null);
   const { id } = useParams();
+  const user = useSelector((state) => state.user);
+  const userId = user.id;
 
   const handleDate = (e) => {
     setVisitDate(e);
@@ -24,7 +27,17 @@ const DetailProperty = () => {
   };
 
   const handleClick = () => {
-    axios.post("http://localhost:8000/api/visits/register");
+    axios
+      .post("http://localhost:8000/api/visits/register", {
+        dateTime: visitDate,
+        prospectId: userId,
+        propertyId: id,
+      })
+      .then(() => console.log("CITA GENERADA"))
+      .catch((error) => {
+        console.log(error);
+        console.log(error.response.data.Error);
+      });
   };
 
   useEffect(() => {
@@ -45,7 +58,8 @@ const DetailProperty = () => {
         <div className="info-property">
           <p>Localidad</p>
           <h3>
-            {data?.city} - {data?.province}
+            <i class="bi bi-geo-alt-fill"></i>
+            {data?.city} <br /> {data?.province}
           </h3>
           <p>Ubicacion</p>
           <h3>
@@ -53,20 +67,12 @@ const DetailProperty = () => {
           </h3>
           <p>Características</p>
           <h4>
-            <i>icono Mts</i> {data?.squareMeters}
+            <i class="fa-solid fa-ruler-combined"></i> {data?.squareMeters} Mts.
           </h4>
           <h4>
-            <i>baños </i> - {data?.bathrooms}
-            <br />
-            <i>cuartos </i> - {data?.bedrooms}
+            <i class="fa-solid fa-bath"></i> {data?.bathrooms} -
+            <i class="fa-solid fa-bed"></i> {data?.bedrooms}
           </h4>
-          <div className="d-flex align-items-center">
-            <Link to={"/favoritos"}>
-              <button type="button" class="btn btn-light">
-                Favoritos ❤️
-              </button>
-            </Link>
-          </div>
 
           <DatePicker
             selected={visitDate}

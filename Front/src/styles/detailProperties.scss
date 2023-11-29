@@ -1,12 +1,24 @@
 .properties {
   display: flex;
   width: 100vw;
+  padding: 70px 0 0 20px;
   .image-property {
-    width: 70%;
-    image-rendering: auto;
+    width: 58%;
+    img {
+      width: 100%;
+      max-height: 100vh;
+      object-fit: cover;
+      border-radius: 18px 0 18px;
+    }
   }
   .info-property {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 40%;
+    p {
+      text-decoration: underline;
+      font-size: 1.2em;
+    }
   }
 }
