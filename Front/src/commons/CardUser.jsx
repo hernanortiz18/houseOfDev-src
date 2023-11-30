@@ -69,7 +69,7 @@ const CardUser = ({ user }) => {
       .get("http://localhost:8000/api/users/passwordValidate", {
         params: {
           email: email,
-          password: passwordActual,
+          password: password.passwordActual,
         },
       })
       .then((result) => {
@@ -80,7 +80,7 @@ const CardUser = ({ user }) => {
             .put(
               `http://localhost:8000/api/users/updatePass/?userEmail=${user.email}`,
               {
-                password: nuevaPassworrd,
+                password: password.nuevaPassworrd,
               }
             )
             .then((res) => res.data)
@@ -95,18 +95,20 @@ const CardUser = ({ user }) => {
 
   return (
     <div className="container-gral">
-      <button onClick={handleClick} className="editButton">
-        <i></i> EDITAR
-      </button>
+      <div className="buttons-profile">
+        <button onClick={handleClick} className="editButton">
+          <i></i> EDITAR
+        </button>
 
-      <button onClick={handleClickPass} className="passButton">
-        <i></i> CAMBIAR PASSWORD
-      </button>
+        <button onClick={handleClickPass} className="passButton">
+          <i></i> CAMBIAR PASSWORD
+        </button>
+      </div>
       <br />
       {!edit && (
         <div className="profile-container">
           <div className="userProfile">
-            <h1>Datos personales</h1>
+            <h1>DATOS PERSONALES</h1>
             <div className="informacion">
               <p>NOMBRE COMPLETO</p>
               <h3>
@@ -123,8 +125,8 @@ const CardUser = ({ user }) => {
 
       {edit && (
         <div>
-          <div className="userProfile">
-            <h1>Datos personales</h1>
+          <div className="userProfile-edit">
+            <h1>DATOS PERSONALES</h1>
             <h3>NOMBRE COMPLETO</h3>
             <form onSubmit={handleSubmit} className="informacion">
               <input
@@ -134,7 +136,7 @@ const CardUser = ({ user }) => {
                 placeholder="NAME"
                 onChange={handleChange}
               />
-              <br />
+
               <input
                 type="text"
                 value={userData.lastName}
@@ -170,7 +172,7 @@ const CardUser = ({ user }) => {
       {newPass && (
         <>
           <form onSubmit={handleSubmitPass} className="informacion">
-            <label htmlFor="passwordActual">PASSWORD ACTUAL</label>
+            <label htmlFor="password">PASSWORD ACTUAL</label>
             <br />
             <input
               type="password"
