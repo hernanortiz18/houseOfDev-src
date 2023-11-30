@@ -7,15 +7,16 @@ import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function AdminProperty({ data }) {
-  const navigate = useNavigate();
+function AdminProperty({ data, onDelete }) {
+  // const navigate = useNavigate();
 
   const handleDelete = (e) => {
     e.preventDefault();
     axios
-      .get(`http://localhost:8000/api/properties/admin/${data.id}`)
-      .then((res) => {
-        navigate("http://localhost:8000/api/properties/admin/");
+      .delete(`http://localhost:8000/api/properties/admin/${data.id}`)
+      .then(() => {
+        onDelete(data.id);
+        // navigate("http://localhost:8000/api/properties/admin/");
       })
       .catch((error) => {
         console.log(error);
