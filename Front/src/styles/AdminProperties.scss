@@ -6,17 +6,17 @@
   background-color: aliceblue;
 }
 
-.imagenPropiedad {
+.imagenPropiedadAdmin {
   width: 293px;
   height: 200px;
   object-fit: cover;
 }
-.imagen {
+.imagenAdmin {
   display: flex;
   align-items: center;
 }
 
-.info {
+.infoAdmin {
   display: flex;
   flex-direction: column;
   width: 1042px;
@@ -49,21 +49,21 @@
   display: flex;
   justify-content: center;
 }
-.div-info-uno {
+.div-info-uno-admin {
   display: flex;
   justify-content: center;
   align-items: center;
   width: 220px;
   margin-left: 25px;
 }
-.div-uno {
+.div-uno-admin {
   display: flex;
   width: 500px;
   height: 75px;
   width: 100px;
 }
 
-.div-dos {
+.div-dos-admin {
   display: flex;
 
   // border: 1px solid black;
@@ -72,7 +72,7 @@
   height: 80px;
   width: 418px;
 }
-.div-tres {
+.div-tres-admin {
   border: 1px solid black;
   height: 114px;
   padding: 10px;
@@ -80,7 +80,7 @@
   margin-right: 5px;
   width: 408px;
 }
-.div-cuatro {
+.div-cuatro-admin {
   display: flex;
   justify-content: space-around;
   border: 1px solid black;
@@ -101,13 +101,13 @@
 // .datas {
 //   width: 100%;
 // }
-.primerCuadrado {
+.primerCuadradoAdmin {
   width: 203px;
   display: flex;
 }
 
 //////////////
-.tituloAlquiler {
+.tituloAlquilerAdmin {
   height: 100px;
   // margin-top: 6250px;
   // background-color: red;

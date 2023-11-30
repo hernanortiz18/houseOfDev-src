@@ -24,13 +24,13 @@ function AdminProperty({ data }) {
 
   return (
     <div className="contenedorAdminPropiedades">
-      <div className="imagen">
-        <img src={data?.img} alt="Property" className="imagenPropiedad" />
+      <div className="imagenAdmin">
+        <img src={data?.img} alt="Property" className="imagenPropiedadAdmin" />
       </div>
-      <div className="info">
-        <div className="div-uno">
-          <div className="div-info-uno">
-            <div className="primerCuadrado">
+      <div className="infoAdmin">
+        <div className="div-uno-admin">
+          <div className="div-info-uno-admin">
+            <div className="primerCuadradoAdmin">
               <p className="titulos">$ </p>
               <p className="margen">{data?.price}</p>
               <div className="lugar">
@@ -41,7 +41,7 @@ function AdminProperty({ data }) {
           </div>
         </div>
 
-        <div className="div-dos">
+        <div className="div-dos-admin">
           <div className="div-info">
             <i className="fa-solid fa-ruler-combined"></i>
             <p className="datas">{data?.squareMeters}</p>
@@ -59,14 +59,14 @@ function AdminProperty({ data }) {
           </div>
         </div>
 
-        <div className="div-tres">
+        <div className="div-tres-admin">
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
             omnis deserunt beatae, sequi suscipit modi nostrum cum delectus,
           </p>
         </div>
 
-        <div className="div-cuatro">
+        <div className="div-cuatro-admin">
           <Link to="#">
             <Button variant="outline-primary">
               <i className="bi bi-heart-fill"></i>
