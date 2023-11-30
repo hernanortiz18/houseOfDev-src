@@ -8,14 +8,14 @@ import Carrusel from "../commons/Carrusel";
 function Alquiler() {
   const search = "alquiler";
   const { ubicacion } = useParams();
-  // const ubicacion = "debugueando";
-  console.log("xxxxxxxxxxxxxx", ubicacion);
   return (
     <>
-      <div className="">
-        <Navbar />
-        <Carrusel />
-        <Property search={search} ubicacion={ubicacion} />
+      <div className="container alquiler">
+        <div className="container-fluid vh-100 ">
+          <Navbar />
+          <Carrusel />
+          <Property search={search} ubicacion={ubicacion} />
+        </div>
       </div>
     </>
   );
