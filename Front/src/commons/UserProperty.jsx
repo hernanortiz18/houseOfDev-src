@@ -6,67 +6,72 @@ import "@fortawesome/fontawesome-free/css/all.css";
 import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-//carrusel
-
 function UserProperty({ data }) {
   return (
-    <div className="contenedorPropiedades">
-      <div className="imagen">
-        <img src={data?.img} alt="Property" className="imagenPropiedad" />
-      </div>
-      <div className="info">
-        <div className="div-uno">
-          <div className="div-info-uno">
-            <div className="primerCuadrado">
-              <p className="titulos">$ </p>
-              <p className="margen">{data?.price}</p>
-              <div className="lugar">
-                <i className="bi bi-geo-alt-fill"></i>
-                <p className="parrafoLugar">{data?.province}</p>
+    <div className="contenedorUserPropiedades mb-4">
+      <div className="row">
+        <div className="col-md-3">
+          <div className="imagen">
+            <img src={data?.img} alt="Property" className="imagenPropiedad" />
+          </div>
+        </div>
+        <div className="col-md-6">
+          <div className="info">
+            <div className="div-uno">
+              <div className="div-info-uno">
+                <div className="primerCuadrado">
+                  <p className="titulos">$ </p>
+                  <p className="margen">{data?.price}</p>
+                  <div className="lugar">
+                    <i className="bi bi-geo-alt-fill"></i>
+                    <p className="parrafoLugar">{data?.province}</p>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
 
-        <div className="div-dos">
-          <div className="div-info">
-            <i className="fa-solid fa-ruler-combined"></i>
-            <p className="datas">{data?.squareMeters}</p>
-            <p className="titulos">M </p>
-          </div>
-          <div className="div-info">
-            <p className="datas">{data?.bedrooms}</p>
-            <p className="titulos">Habitaciones </p>
-            <i class="fa-solid fa-bed"></i>
-          </div>
-          <div className="div-info">
-            <p className="datas">{data?.bathrooms}</p>
-            <p className="titulos">Baños</p>
-            <i className="fa-solid fa-bath"></i>
-          </div>
-        </div>
+            <div className="div-dos">
+              <div className="div-info">
+                <i className="fa-solid fa-ruler-combined"></i>
+                <p className="datas">{data?.squareMeters}</p>
+                <p className="titulos">M </p>
+              </div>
+              <div className="div-info">
+                <i class="fa-solid fa-bed"></i>
+                <p className="datas">{data?.bedrooms}</p>
+                <p className="titulos">Habitaciones </p>
+              </div>
+              <div className="div-info">
+                <i className="fa-solid fa-bath"></i>
+                <p className="datas">{data?.bathrooms}</p>
+                <p className="titulos">Baños</p>
+              </div>
+            </div>
 
-        <div className="div-tres">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-            omnis deserunt beatae, sequi suscipit modi nostrum cum delectus,
-          </p>
-        </div>
+            <div className="div-tres">
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Inventore omnis deserunt beatae, sequi suscipit modi nostrum cum
+                delectus,
+              </p>
+            </div>
 
-        <div className="div-cuatro">
-          <Link>
-            <Button variant="outline-primary">
-              <i className="bi bi-heart-fill"></i>
-            </Button>
-          </Link>
-          <Link to={"contactate"}>
-            <Button variant="outline-primary">
-              <i className="bi bi-telephone-fill"></i>
-            </Button>
-          </Link>
-          <Link to={`/propiedades/${data.id}`}>
-            <Button variant="outline-primary ">VER MÁS</Button>
-          </Link>
+            <div className="div-cuatro">
+              <Link>
+                <Button variant="outline-primary">
+                  <i className="bi bi-heart-fill"></i>
+                </Button>
+              </Link>
+              <Link to={"contactate"}>
+                <Button variant="outline-primary">
+                  <i className="bi bi-telephone-fill"></i>
+                </Button>
+              </Link>
+              <Link to={`/propiedades/${data.id}`}>
+                <Button variant="outline-primary ">VER MÁS</Button>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>
