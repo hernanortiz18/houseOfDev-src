@@ -4,6 +4,8 @@ import axios from "axios";
 import Navbar from "../commons/Navbar";
 import { Link } from "react-router-dom";
 import DatePicker from "react-datepicker";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "react-datepicker/dist/react-datepicker.css";
 import "../styles/detailProperties.scss";
 import { useSelector } from "react-redux/es/hooks/useSelector";
@@ -33,10 +35,10 @@ const DetailProperty = () => {
         prospectId: userId,
         propertyId: id,
       })
-      .then(() => console.log("CITA GENERADA"))
-      .catch((error) => {
-        console.log(error);
-        console.log(error.response.data.Error);
+      .then(() => toast.success("VISITA REGISTRADA CON EXITO"))
+      .catch(() => {
+        console.error(Error);
+        toast.error("FECHA Y HORA NO DISPONIBLES");
       });
   };
 
@@ -74,6 +76,7 @@ const DetailProperty = () => {
             <i class="fa-solid fa-bed"></i> {data?.bedrooms}
           </h3>
 
+          <ToastContainer />
           <DatePicker
             className="callendar-input"
             selected={visitDate}
