@@ -66,15 +66,16 @@ const DetailProperty = () => {
             {data?.address} N°{data?.number}
           </h3>
           <p>Características</p>
-          <h4>
+          <h3>
             <i class="fa-solid fa-ruler-combined"></i> {data?.squareMeters} Mts.
-          </h4>
-          <h4>
+          </h3>
+          <h3>
             <i class="fa-solid fa-bath"></i> {data?.bathrooms} -
             <i class="fa-solid fa-bed"></i> {data?.bedrooms}
-          </h4>
+          </h3>
 
           <DatePicker
+            className="callendar-input"
             selected={visitDate}
             onChange={handleDate}
             showTimeSelect
@@ -86,7 +87,9 @@ const DetailProperty = () => {
             filterTime={visitTime}
           />
           <br />
-          <button onClick={handleClick}>RESERVAR VISITA</button>
+          <button onClick={handleClick} className="button-visit">
+            RESERVAR VISITA
+          </button>
         </div>
       </div>
     </>
