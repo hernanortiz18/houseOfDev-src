@@ -6,13 +6,12 @@ import { useParams } from "react-router";
 import Carrusel from "../commons/Carrusel";
 
 function Venta() {
-  const search = "alquiler";
+  const search = "comprar";
   const { ubicacion } = useParams();
-
   return (
     <>
       <div className="container comprar">
-        <div className="container-fluid vh-100 alquiler">
+        <div className="container-fluid vh-100 comprar">
           <Navbar />
           <Carrusel />
 

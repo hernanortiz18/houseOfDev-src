@@ -1,5 +1,4 @@
 import UserProperty from "./UserProperty";
-import { Link } from "react-router-dom";
 import "../styles/cardproperties.scss";
 
 //GRID
