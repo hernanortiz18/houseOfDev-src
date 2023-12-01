@@ -19,7 +19,7 @@ import Venta from "./components/Venta";
 import DetailProperty from "./components/DetailProperty";
 
 import UserProperty from "./commons/UserProperty";
-
+import Admincitas from "./components/Admincitas";
 import CreateProperty from "./components/CreateProperty";
 import Admin from "./components/Admin";
 
@@ -48,7 +48,7 @@ function App() {
           <Route path="/propiedades/:id" element={<DetailProperty />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/crearPropiedades" element={<CreateProperty />} />
-          <Route path="/reservas" />
+          <Route path="/reservas" element={<Admincitas />} />
         </Routes>
       </BrowserRouter>
     </>
