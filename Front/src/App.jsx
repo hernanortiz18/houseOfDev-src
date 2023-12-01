@@ -48,6 +48,7 @@ function App() {
           <Route path="/propiedades/:id" element={<DetailProperty />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/crearPropiedades" element={<CreateProperty />} />
+          <Route path="/reservas" />
         </Routes>
       </BrowserRouter>
     </>
