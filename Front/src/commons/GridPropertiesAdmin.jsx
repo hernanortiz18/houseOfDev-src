@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
-import AdminProperty from "./AdminProperty";
+
 import "../styles/AdminProperties.scss";
+import CardAdminProperty from "./CardAdminProperty";
 
 //GRID
-const CardPropertiesAdmin = ({ property }) => {
+const GridPropertiesAdmin = ({ property }) => {
   return (
     <div className="containerGrilla">
       <div className="row row-cols-2 row-cols-md-2 g-4">
@@ -12,7 +13,7 @@ const CardPropertiesAdmin = ({ property }) => {
             <div className="col" key={i}>
               <div className="">
                 <Link to={`propiedades/${data.id}`}>
-                  <AdminProperty data={data} />
+                  <CardAdminProperty data={data} />
                 </Link>
               </div>
             </div>
@@ -22,4 +23,4 @@ const CardPropertiesAdmin = ({ property }) => {
   );
 };
 
-export default CardPropertiesAdmin;
+export default GridPropertiesAdmin;
