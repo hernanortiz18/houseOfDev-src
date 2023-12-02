@@ -9,9 +9,8 @@ function Usersadmin() {
       .get(`http://localhost:8000/api/users/allUsers`)
       .then((res) => res.data)
       .then((users) => setUsers(users))
-      .catch(() => "Usuarios no encontrados"),
-      [];
-  });
+      .catch(() => "Usuarios no encontrados");
+  }, []);
 
   return (
     <>
