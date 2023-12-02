@@ -38,7 +38,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={"usuariosadmin"} className="nav-link">
+                <Link to={"/usuariosadmin"} className="nav-link">
                   Usuarios
                 </Link>
               </li>
