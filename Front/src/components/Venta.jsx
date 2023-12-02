@@ -14,7 +14,6 @@ function Venta() {
         <div className="container-fluid vh-100 comprar">
           <Navbar />
           <Carrusel />
-
           <Property search={search} ubicacion={ubicacion} />
         </div>
       </div>

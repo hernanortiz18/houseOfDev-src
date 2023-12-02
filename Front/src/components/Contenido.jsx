@@ -7,7 +7,7 @@ import Navbar from "../commons/Navbar";
 
 function Contenido() {
   const [search, setSearch] = useState("");
-  const [searchResult, setSearchResult] = useState([]);
+  // const [searchResult, setSearchResult] = useState([]);
   const [ubicacion, setUbicacion] = useState("");
 
   const handleOptionBusqueda = (e) => {

@@ -8,6 +8,7 @@ import Carrusel from "../commons/Carrusel";
 function Alquiler() {
   const search = "alquiler";
   const { ubicacion } = useParams();
+
   return (
     <>
       <div className="container alquiler">
@@ -16,6 +17,7 @@ function Alquiler() {
           <Carrusel />
           <Property search={search} ubicacion={ubicacion} />
         </div>
+
       </div>
     </>
   );
