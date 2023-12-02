@@ -27,7 +27,7 @@ function CreateProperty() {
     setNumber(e.target.value);
   };
   const handleOnsale = (e) => {
-    setOnsale(e.target.value === "Comprar");
+    setOnsale(!onSale);
   };
   const handlePrice = (e) => {
     setPrice(e.target.value);
@@ -71,6 +71,7 @@ function CreateProperty() {
         setAddress("");
         setNumber("");
         setOnsale("");
+        setPrice("");
         setImg("");
         setSquareMeters("");
         setBathrooms("");
@@ -202,16 +203,3 @@ function CreateProperty() {
 }
 console.log("holaaa");
 export default CreateProperty;
-
-// {
-//   "province": "Córdoba",
-//   "city": "Alpa Corral",
-//   "adress": "436",
-//   "number": "651",
-//   "onSale": "true",
-//   "price": "700",
-//   "img":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRKCVRr7ZCbUy20ngTArBtw2bs-TrB6THUeLg&usqp=CAU",
-//   "squareMeters":"34",
-//   "bathrooms":"2",
-//   "bedrooms":"2"
-// }

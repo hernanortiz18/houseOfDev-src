@@ -3,17 +3,19 @@ import Navbar from "../commons/Navbar";
 import "../styles/venta.scss";
 import Property from "./Property";
 import { useParams } from "react-router";
+import Carrusel from "../commons/Carrusel";
 
 function Venta() {
   const search = "comprar";
   const { ubicacion } = useParams();
-
   return (
     <>
       <div className="container comprar">
-        <Navbar />
-        <h2 className="mt-4 mb-4">Propiedades en Alquiler</h2>
-        <Property search={search} ubicacion={ubicacion} />
+        <div className="container-fluid vh-100 comprar">
+          <Navbar />
+          <Carrusel />
+          <Property search={search} ubicacion={ubicacion} />
+        </div>
       </div>
     </>
   );

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../commons/Navbar";
 import axios from "axios";
-import CardProperties from "../commons/CardProperties";
+import GridPropertiesUsers from "../commons/GridPropertiesUsers";
 
 const Property = ({ search, ubicacion }) => {
   const [property, setProperty] = useState({});
@@ -9,7 +9,8 @@ const Property = ({ search, ubicacion }) => {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:8000/api/properties/${search}?ubicacion=${ubicacion}`,
+        `http://localhost:8000/api/properties/${search}`,
+        { params: { ubicacion: `${ubicacion}` } },
         {
           withCredentials: true,
         }
@@ -24,7 +25,7 @@ const Property = ({ search, ubicacion }) => {
   return (
     <>
       <Navbar />
-      <CardProperties property={property} />
+      <GridPropertiesUsers property={property} />
     </>
   );
 };

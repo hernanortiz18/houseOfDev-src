@@ -4,10 +4,15 @@ import { useNavigate } from "react-router";
 import "../styles/register.scss";
 import headImg from "../assets/img/Group179.png";
 import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import Navbar from "../commons/Navbar";
 
 const Register = () => {
   const navigate = useNavigate();
+
+  const invalid = () => toast("LA CONTRASEÑA NO COINCIDE, VUELVE A INGRESARLA");
 
   const [registerData, setRegisterData] = useState({
     name: "",
@@ -15,6 +20,7 @@ const Register = () => {
     phone: "",
     email: "",
     password: "",
+    passwordRepeat: "",
   });
 
   const handleChange = (e) => {
@@ -26,20 +32,28 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        "http://localhost:8000/api/users/register",
-        {
-          name: registerData.name,
-          lastName: registerData.lastName,
-          phone: registerData.phone,
-          email: registerData.email,
-          password: registerData.password,
-        },
-        { withCredentials: true }
-      )
-      .then((res) => res.data)
-      .then(() => navigate("/login"));
+    if (registerData.passwordRepeat === registerData.password) {
+      axios
+        .post(
+          "http://localhost:8000/api/users/register",
+          {
+            name: registerData.name,
+            lastName: registerData.lastName,
+            phone: registerData.phone,
+            email: registerData.email,
+            password: registerData.password,
+          },
+          { withCredentials: true }
+        )
+        .then((res) => res.data)
+        .then(() => navigate("/login"))
+        .catch((error) => {
+          console.error("Error al registrar: ", error);
+          toast.error("LA CONTRASEÑA NO COINCIDE, VUELVE A INGRESARLA");
+        });
+    } else {
+      toast.error("LA CONTRASEÑA NO COINCIDE, VUELVE A INGRESARLA");
+    }
   };
 
   return (
@@ -47,6 +61,7 @@ const Register = () => {
       <Navbar />
       <div className="fondo">
         <div className="register">
+          <ToastContainer />;
           <form onSubmit={handleSubmit} className="formRegister">
             <input
               value={registerData.name}
@@ -54,6 +69,7 @@ const Register = () => {
               name="name"
               placeholder="NAME"
               onChange={handleChange}
+              required
             />
             <br />
             <input
@@ -62,6 +78,7 @@ const Register = () => {
               name="lastName"
               placeholder="LAST NAME"
               onChange={handleChange}
+              required
             />
             <br />
             <input
@@ -70,14 +87,16 @@ const Register = () => {
               name="phone"
               placeholder="PHONE"
               onChange={handleChange}
+              required
             />
             <br />
             <input
               value={registerData.email}
-              type="text"
+              type="email"
               name="email"
               placeholder="E-MAIL"
               onChange={handleChange}
+              required
             />
             <br />
             <input
@@ -86,6 +105,16 @@ const Register = () => {
               name="password"
               placeholder="PASSWORD"
               onChange={handleChange}
+              required
+            />
+            <br />
+            <input
+              value={registerData.passwordRepeat}
+              type="password"
+              name="passwordRepeat"
+              placeholder="REPEAT PASSWORD"
+              onChange={handleChange}
+              required
             />
             <br />
 
