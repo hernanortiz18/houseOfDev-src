@@ -63,7 +63,7 @@ const DetailProperty = () => {
             <i class="bi bi-geo-alt-fill"></i>
             {data?.city} <br /> {data?.province}
           </h3>
-          <p>Ubicacion</p>
+          <p>Ubicación</p>
           <h3>
             {data?.address} N°{data?.number}
           </h3>
@@ -90,9 +90,15 @@ const DetailProperty = () => {
             filterTime={visitTime}
           />
           <br />
-          <button onClick={handleClick} className="button-visit">
-            RESERVAR VISITA
-          </button>
+          {user.id ? (
+            <button onClick={handleClick} className="button-visit">
+              RESERVAR VISITA
+            </button>
+          ) : (
+            <Link to="/login">
+              <button className="button-visit">LOG IN PARA RESERVAR</button>
+            </Link>
+          )}
         </div>
       </div>
     </>
