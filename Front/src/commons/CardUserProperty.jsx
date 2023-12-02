@@ -10,7 +10,7 @@ import "../styles/properties.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "@fortawesome/fontawesome-free/css/all.css";
 
-function UserProperty({ data }) {
+function CardUserProperty({ data }) {
   const user = useSelector((state) => state.user);
   const userId = user.id;
   const propId = data.id;
@@ -105,4 +105,4 @@ function UserProperty({ data }) {
   );
 }
 
-export default UserProperty;
+export default CardUserProperty;

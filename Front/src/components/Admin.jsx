@@ -4,7 +4,8 @@ import NavbarAdmin from "../commons/NavbarAdmin";
 import "../styles/createproperties.scss";
 
 import axios from "axios";
-import CardPropertiesAdmin from "../commons/CardPropertiesAdmin";
+
+import GridPropertiesAdmin from "../commons/GridPropertiesAdmin";
 
 //Renderizamos las propiedades en admin!
 const Admin = () => {
@@ -20,7 +21,7 @@ const Admin = () => {
   return (
     <>
       <NavbarAdmin />
-      <CardPropertiesAdmin property={property} />
+      <GridPropertiesAdmin property={property} />
     </>
   );
 };

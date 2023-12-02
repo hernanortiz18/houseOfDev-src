@@ -7,7 +7,7 @@ import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
-function AdminProperty({ data, onDelete }) {
+function CardAdminProperty({ data, onDelete }) {
   // const navigate = useNavigate();
 
   const handleDelete = (e) => {
@@ -91,4 +91,4 @@ function AdminProperty({ data, onDelete }) {
   );
 }
 
-export default AdminProperty;
+export default CardAdminProperty;
