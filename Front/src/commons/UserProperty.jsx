@@ -17,6 +17,8 @@ function UserProperty({ data }) {
 
   const handleClick = (e) => {
     e.preventDefault();
+    if (!user.id)
+      toast.warn("necesitas estar loggeado para agregar a favoritos");
     axios
       .post("http://localhost:8000/api/favs/register", {
         prospectId: userId,
@@ -81,8 +83,8 @@ function UserProperty({ data }) {
                 </p>
               </div>
 
+              <ToastContainer />
               <div className="div-cuatro">
-                <ToastContainer />
                 <button onClick={handleClick} variant="outline-primary">
                   <i className="bi bi-heart-fill"></i>
                 </button>
