@@ -22,11 +22,12 @@ function UserProperty({ data }) {
         prospectId: userId,
         propertyId: propId,
       })
-      .then(() => {
-        toast.update("AGREGADA A FAVORITOS");
+      .then((result) => {
+        if (result === true) toast.success("AGREGADA A FAVORITOS");
+        else toast.warn("ESTA PROPIEDAD YA SE ENCUENTRA EN FAVORITOS");
       })
       .catch(() => {
-        toast.error("PRUEBA IS ACTIVE");
+        toast.error("HA OCURRIDO UN ERROR, VUELVE A INTENTARLO");
       });
   };
 
@@ -82,16 +83,16 @@ function UserProperty({ data }) {
 
               <div className="div-cuatro">
                 <ToastContainer />
-                <Button onClick={handleClick} variant="outline-primary">
+                <button onClick={handleClick} variant="outline-primary">
                   <i className="bi bi-heart-fill"></i>
-                </Button>
+                </button>
                 <Link to={"contactate"}>
-                  <Button variant="outline-primary">
+                  <button variant="outline-primary">
                     <i className="bi bi-telephone-fill"></i>
-                  </Button>
+                  </button>
                 </Link>
                 <Link to={`/propiedades/${data.id}`}>
-                  <Button variant="outline-primary ">VER MÁS</Button>
+                  <button variant="outline-primary ">VER MÁS</button>
                 </Link>
               </div>
             </div>
