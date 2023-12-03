@@ -39,7 +39,7 @@ function CardUserProperty({ data }) {
           <img
             src={data?.img}
             className="img-fluid rounded-start"
-            style={{ width: "100%", height: "100%" }}
+            // style={{ width: "100%", height: "100%" }}
             alt="..."
           />
         </div>
