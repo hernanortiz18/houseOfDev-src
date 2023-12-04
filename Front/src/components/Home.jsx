@@ -16,7 +16,6 @@ function Home() {
         console.log(error);
       });
   }, []);
-  console.log("hola");
   return (
     <div className="vista-home">
       <Link to="/contenido">

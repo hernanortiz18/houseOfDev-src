@@ -42,7 +42,6 @@ function Cardcitas({ data }) {
   //     .catch(() => "No hay citas");
   // });
 
-  console.log("xxxxxxxxxxxxxxxxxxxxxxxxx", user);
   return (
     <div className="card" style={{ width: "18rem" }}>
       <img src={property.img} class="card-img-top" alt="..."></img>
