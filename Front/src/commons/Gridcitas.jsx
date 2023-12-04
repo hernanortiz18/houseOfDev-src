@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import Cardcitas from "./Cardcitas";
+import Cardcitas from "./CardCitas";
 
 //GRID
 const Gridcitas = ({ user }) => {
