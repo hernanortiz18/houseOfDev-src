@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 import Navbar from "../commons/Navbar";
 import axios from "axios";
+
+import CardProperties from "../commons/CardProperties";
+import FilterSideBar from "./FilterSideBar";
+
 import GridPropertiesUsers from "../commons/GridPropertiesUsers";
+
 
 const Property = ({ search, ubicacion }) => {
   const [property, setProperty] = useState({});
@@ -16,7 +21,8 @@ const Property = ({ search, ubicacion }) => {
         }
       )
       .then((res) => res.data)
-      .then((properties) => setProperty(properties))
+      .then((result) => console.log(result))
+      // .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
   }, []);
 
@@ -25,7 +31,12 @@ const Property = ({ search, ubicacion }) => {
   return (
     <>
       <Navbar />
+
+      <FilterSideBar />
+      <CardProperties property={property} />
+
       <GridPropertiesUsers property={property} />
+
     </>
   );
 };
