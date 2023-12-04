@@ -63,9 +63,9 @@ function CardAdminProperty({ data, onDelete }) {
                 <button className="btn btn-outline-primary">
                   <i className="bi bi-heart-fill"></i>
                 </button>
-                <Link to={"contactate"}>
+                <Link to={`/editar/${data.id}`}>
                   <button className="btn btn-outline-primary">
-                    <i className="bi bi-telephone-fill"></i>
+                    <i class="bi bi-pencil-fill"></i>
                   </button>
                 </Link>
                 <Link to={`/propiedades/${data.id}`}>
