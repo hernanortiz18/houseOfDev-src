@@ -2,6 +2,11 @@
   object-fit: cover;
 }
 
+// .img-fluid {
+//   min-width: 100%;
+//   height: 200px;
+// }
+
 @media (max-width: 768px) {
   .row-cols-2 > * {
     flex: 0 0 auto;
