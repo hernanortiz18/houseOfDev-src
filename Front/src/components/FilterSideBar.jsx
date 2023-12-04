@@ -1,9 +1,7 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 const FilterSideBar = () => {
   const [filter, setFilter] = useState(false);
-
-  useEffect();
 
   const handleFilter = () => {
     setFilter(!filter);
