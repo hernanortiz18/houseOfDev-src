@@ -12,8 +12,6 @@ import Navbar from "../commons/Navbar";
 const Register = () => {
   const navigate = useNavigate();
 
-  const invalid = () => toast("LA CONTRASEÑA NO COINCIDE, VUELVE A INGRESARLA");
-
   const [registerData, setRegisterData] = useState({
     name: "",
     lastName: "",
