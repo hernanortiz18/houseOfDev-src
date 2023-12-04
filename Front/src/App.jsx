@@ -5,7 +5,6 @@ import Login from "./components/login";
 import Register from "./components/Register";
 import { useEffect, useState } from "react";
 import axios from "axios";
-
 import { setUser } from "./redux/user";
 
 import { useDispatch } from "react-redux";
@@ -21,6 +20,7 @@ import Admincitas from "./components/Admincitas";
 import CreateProperty from "./components/CreateProperty";
 import Admin from "./components/Admin";
 import Usersadmin from "./components/Usersadmin";
+import EditProperty from "./commons/EditProperty";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,9 +45,9 @@ function App() {
           <Route path="/comprar/:ubicacion" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/propiedades/:id" element={<DetailProperty />} />
+          <Route path="/editar/:id" element={<EditProperty />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/usuariosadmin" element={<Usersadmin />} />
-
           <Route path="/crearPropiedades" element={<CreateProperty />} />
           <Route path="/reservas" element={<Admincitas />} />
         </Routes>
