@@ -24,67 +24,59 @@ function CardAdminProperty({ data, onDelete }) {
   };
 
   return (
-    <div className="contenedorAdminPropiedades">
-      <div className="imagenAdmin">
-        <img src={data?.img} alt="Property" className="imagenPropiedadAdmin" />
-      </div>
-      <div className="infoAdmin">
-        <div className="div-uno-admin">
-          <div className="div-info-uno-admin">
-            <div className="primerCuadradoAdmin">
-              <p className="titulos">$ </p>
-              <p className="margen">{data?.price}</p>
-              <div className="lugar">
-                <i className="bi bi-geo-alt-fill"></i>
-                <p className="parrafoLugar">{data?.province}</p>
+    <div className="contenedorAdmin">
+      <div className="card mb-3" style={{ maxWidth: "540px" }}>
+        <div className="row g-0">
+          <div className="col-md-5">
+            <img
+              src={data?.img}
+              className="img-fluid rounded-start"
+              // style={{ width: "100%", height: "100%" }}
+              alt="..."
+            />
+          </div>
+          <div className="col-md-7">
+            <div className="card-body">
+              <div className="d-flex justify-content-between">
+                <p className="card-text">
+                  <i class="fa-sharp fa-solid fa-dollar-sign"></i> {data.price}{" "}
+                </p>
+                <p className="card-text">
+                  <i className="bi bi-geo-alt-fill"></i> {data.province}
+                </p>
+              </div>
+              <div className="d-flex justify-content-between">
+                <p className="card-text">
+                  <i className="fa-solid fa-ruler-combined"></i>{" "}
+                  {data?.squareMeters}
+                  {" Mt²"}
+                </p>
+                <p className="card-text">
+                  <i class="fa-solid fa-bed"></i> {data?.bedrooms} {" dorm"}
+                </p>
+                <p className="card-text">
+                  <i className="fa-solid fa-bath"></i> {data?.bathrooms}
+                  {" Baños"}
+                </p>
+              </div>
+              <div className="d-flex justify-content-between">
+                <button className="btn btn-outline-primary">
+                  <i className="bi bi-heart-fill"></i>
+                </button>
+                <Link to={"contactate"}>
+                  <button className="btn btn-outline-primary">
+                    <i className="bi bi-telephone-fill"></i>
+                  </button>
+                </Link>
+                <Link to={`/propiedades/${data.id}`}>
+                  <button className="btn btn-outline-primary">VER MÁS</button>
+                </Link>
+                <Button variant="outline-primary" onClick={handleDelete}>
+                  <i className="fa-solid fa-trash-can"></i>
+                </Button>
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="div-dos-admin">
-          <div className="div-info">
-            <i className="fa-solid fa-ruler-combined"></i>
-            <p className="datas">{data?.squareMeters}</p>
-            <p className="titulos">M </p>
-          </div>
-          <div className="div-info">
-            <p className="datas">{data?.bedrooms}</p>
-            <p className="titulos">Habitaciones </p>
-            <i className="fa-solid fa-bed"></i>
-          </div>
-          <div className="div-info">
-            <p className="datas">{data?.bathrooms}</p>
-            <p className="titulos">Baños</p>
-            <i className="fa-solid fa-bath"></i>
-          </div>
-        </div>
-
-        <div className="div-tres-admin">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore
-            omnis deserunt beatae, sequi suscipit modi nostrum cum delectus,
-          </p>
-        </div>
-
-        <div className="div-cuatro-admin">
-          <Link to="#">
-            <Button variant="outline-primary">
-              <i className="bi bi-heart-fill"></i>
-            </Button>
-          </Link>
-          <Link to="contactate">
-            <Button variant="outline-primary">
-              <i className="bi bi-telephone-fill"></i>
-            </Button>
-          </Link>
-          <Link to={`/propiedades/${data.id}`}>
-            <Button variant="outline-primary">VER MÁS</Button>
-          </Link>
-
-          <Button variant="outline-primary" onClick={handleDelete}>
-            <i className="fa-solid fa-trash-can"></i>
-          </Button>
         </div>
       </div>
     </div>
