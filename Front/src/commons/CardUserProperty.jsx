@@ -16,8 +16,9 @@ function CardUserProperty({ data }) {
 
   const handleClick = (e) => {
     e.preventDefault();
-    if (!user.id)
+    if (!user.id) {
       toast.warn("necesitas estar loggeado para agregar a favoritos");
+    }
     axios
       .post("http://localhost:8000/api/favs/register", {
         prospectId: userId,
@@ -25,7 +26,9 @@ function CardUserProperty({ data }) {
       })
       .then((result) => {
         if (result === true) toast.success("AGREGADA A FAVORITOS");
-        else toast.warn("ESTA PROPIEDAD YA SE ENCUENTRA EN FAVORITOS");
+        else {
+          toast.warn("ESTA PROPIEDAD YA SE ENCUENTRA EN FAVORITOS");
+        }
       })
       .catch(() => {
         toast.error("HA OCURRIDO UN ERROR, VUELVE A INTENTARLO");

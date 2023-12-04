@@ -4,7 +4,7 @@ import axios from "axios";
 
 // import CardProperties from "../commons/CardProperties";
 import FilterSideBar from "./FilterSideBar";
-
+import "../styles/propertiesScreen.scss";
 import GridPropertiesUsers from "../commons/GridPropertiesUsers";
 
 const Property = ({ search, ubicacion }) => {
@@ -24,15 +24,17 @@ const Property = ({ search, ubicacion }) => {
       .catch(() => "Propiedad no encontrada");
   }, []);
 
-  console.log("//////////////////////PROPERTY////////////////////", property);
-
   return (
     <>
       <Navbar />
-
-      <FilterSideBar property={property} />
-
-      <GridPropertiesUsers property={property} />
+      <div className="properties-screen-container">
+        <div className="filter-container">
+          <FilterSideBar property={property} />
+        </div>
+        <div className="grid-properties-container">
+          <GridPropertiesUsers property={property} />
+        </div>
+      </div>
     </>
   );
 };
