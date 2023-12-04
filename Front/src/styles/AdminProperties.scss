@@ -1,6 +1,10 @@
 .img {
   object-fit: cover;
 }
+.img-fluid {
+  min-width: 100%;
+  height: 250px;
+}
 
 @media (max-width: 450px) {
   .row-cols-2 > * {
