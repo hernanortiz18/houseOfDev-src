@@ -1,7 +1,17 @@
-import { useEffect, useState } from "react";
-import { useParams, useSearchParams } from "react-router-dom";
+import axios from "axios";
+import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const FilterSideBar = ({ property }) => {
+  const uniqueValues = {};
+
+  if (property.length > 0) {
+    // Iterar sobre las propiedades para obtener valores únicos por cada propiedad
+    ["province", "city", "bedrooms"].forEach((prop) => {
+      uniqueValues[prop] = [...new Set(property.map((item) => item[prop]))];
+    });
+  }
+
   const [filter, setFilter] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -14,20 +24,31 @@ const FilterSideBar = ({ property }) => {
 
     if (value !== "") {
       const params = new URLSearchParams(searchParams);
-
       params.set(name, value);
       setSearchParams(params);
     }
   };
 
-  const uniqueValues = {};
+  const handlePrice = (e) => {
+    const { name, value } = e.target;
 
-  if (property.length > 0) {
-    // Iterar sobre las propiedades para obtener valores únicos por cada propiedad
-    ["province", "city", "bedrooms"].forEach((prop) => {
-      uniqueValues[prop] = [...new Set(property.map((item) => item[prop]))];
-    });
-  }
+    if (value !== "") {
+      const params = new URLSearchParams(searchParams);
+      params.set(name, value);
+      setSearchParams(params);
+    } else {
+      const params = new URLSearchParams(searchParams);
+      params.delete(name);
+      setSearchParams(params);
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefautl();
+    axios
+      .get(`http://localhost:8000/api/properties?${searchParams}`)
+      .then(() => console.log("SALIÓ EL SUBMIT DE FILTER"));
+  };
 
   return (
     <>
@@ -40,6 +61,7 @@ const FilterSideBar = ({ property }) => {
               name="province"
               id="province"
               className="for-select form-select-md mb-3"
+              onChange={handleSearchParams}
             >
               <option value="" id="optionName" disabled selected>
                 PROVINCIA
@@ -57,6 +79,7 @@ const FilterSideBar = ({ property }) => {
               name="city"
               id="city"
               className="for-select form-select-md mb-3"
+              onChange={handleSearchParams}
             >
               <option value="" id="optionName" disabled selected>
                 CIUDAD
@@ -73,6 +96,7 @@ const FilterSideBar = ({ property }) => {
               name="bedrooms"
               id="bedrooms"
               className="for-select form-select-md mb-3"
+              onChange={handleSearchParams}
             >
               <option value="" id="optionName" disabled selected>
                 HABITACIONES
@@ -86,10 +110,14 @@ const FilterSideBar = ({ property }) => {
             </select>
             <br />
             <label htmlFor="price">VALOR (USD)</label>
-            <input type="text" placeholder="MAX" />
-            <button type="submit" onClick={() => console.log(searchParams)}>
-              APLICAR FILTROS
-            </button>
+            <input
+              type="text"
+              name="price"
+              placeholder="MAX"
+              value=""
+              onChange={handlePrice}
+            />
+            <button type="submit">APLICAR FILTROS</button>
           </form>
         )}
       </div>
