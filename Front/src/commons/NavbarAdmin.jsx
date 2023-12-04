@@ -10,7 +10,7 @@ function Navbar() {
     <>
       <nav className="navbar navbar-expand-lg bg-admin fixed-top">
         <div className="container-fluid">
-          <Link to={"/"} className="nav-link">
+          <Link to={"/admin"} className="nav-link">
             <img src={icono} />
           </Link>
 
@@ -38,7 +38,7 @@ function Navbar() {
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to={""} className="nav-link">
+                <Link to={"/usuariosadmin"} className="nav-link">
                   Usuarios
                 </Link>
               </li>

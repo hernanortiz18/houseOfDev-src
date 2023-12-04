@@ -1,15 +1,15 @@
-import UserProperty from "./UserProperty";
 import "../styles/cardproperties.scss";
+import CardUserProperty from "./CardUserProperty";
 
 //GRID
-const CardProperties = ({ property }) => {
+const GridPropertiesUsers = ({ property }) => {
   return (
     <div className="containerGrilla">
       <div className="row row-cols-2 row-cols-md-2 g-4">
         {property.length &&
           property.map((data, i) => (
             <div className="col" key={i}>
-              <UserProperty data={data} />
+              <CardUserProperty data={data} />
             </div>
           ))}
       </div>
@@ -17,4 +17,4 @@ const CardProperties = ({ property }) => {
   );
 };
 
-export default CardProperties;
+export default GridPropertiesUsers;

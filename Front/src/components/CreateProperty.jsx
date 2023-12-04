@@ -201,5 +201,5 @@ function CreateProperty() {
     </>
   );
 }
-
+console.log("holaaa");
 export default CreateProperty;
