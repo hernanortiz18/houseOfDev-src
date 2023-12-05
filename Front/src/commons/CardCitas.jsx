@@ -6,7 +6,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 
 function Cardcitas({ data }) {
   console.log(data);
@@ -45,15 +45,20 @@ function Cardcitas({ data }) {
 
   const dateConfirm = () => {
     axios
-      .put("http://localhost:8000/api/visits/dateConfirm", {
-        to: user.email,
-      })
+      .put(
+        "http://localhost:8000/api/visits/dateConfirm",
+        {
+          to: user.email,
+        },
+        { returning: true }
+      )
       .then((result) => toast.success("LA CITA FUE CONFIRMADA"))
       .catch((err) => toast.error("HA OCURRIDO UN ERROR CON SU SOLICITUD"));
   };
 
   return (
     <div className="card" style={{ width: "18rem" }}>
+      <ToastContainer />
       <img src={property.img} class="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{user.name}</h5>
