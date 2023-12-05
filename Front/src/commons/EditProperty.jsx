@@ -1,11 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import NavbarAdmin from "../commons/NavbarAdmin";
-import { useNavigate, useParams } from "react-router";
+import { useParams } from "react-router";
 
 function EditProperty() {
   const { id } = useParams();
-  const navigate = useNavigate();
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
@@ -97,14 +96,14 @@ function EditProperty() {
         setSquareMeters("");
         setBathrooms("");
         setBedrooms("");
-      });
-    navigate("/admin");
+      })
+      .then(() => navigate("/admin"));
   };
 
   return (
     <>
-      <NavbarAdmin />
       <div class="container text-center">
+        <NavbarAdmin />
         <div class="row">
           <div class="col">
             <form onSubmit={handleSubmit} className="row g-3">
