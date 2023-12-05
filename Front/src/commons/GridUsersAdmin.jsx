@@ -11,7 +11,7 @@ function GridUsersAdmin({ users }) {
           users.map((data, i) => (
             <div className="col-md-3 mb-3" key={i}>
               <div className="d-flex justify-content-center align-items-center">
-                <Link to={`usuario/${data.id}`}>
+                <Link to={`/perfil/${data.id}`}>
                   <CardUsersAdmin data={data} />
                 </Link>
               </div>

@@ -21,6 +21,7 @@ import CreateProperty from "./components/CreateProperty";
 import Admin from "./components/Admin";
 import Usersadmin from "./components/Usersadmin";
 import EditProperty from "./commons/EditProperty";
+import UserIdentification from "./components/userIdentification";
 
 function App() {
   const dispatch = useDispatch();
@@ -45,6 +46,8 @@ function App() {
           <Route path="/comprar/:ubicacion" element={<Venta />} />
           <Route path="/perfil" element={<Profile />} />
           <Route path="/propiedades/:id" element={<DetailProperty />} />
+          {/* estoy haceidno la ruta d eabajo */}
+          <Route path="/perfil/:id" element={<UserIdentification />} />
           <Route path="/editar/:id" element={<EditProperty />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/usuariosadmin" element={<Usersadmin />} />

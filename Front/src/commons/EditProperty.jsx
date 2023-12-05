@@ -19,6 +19,8 @@ function EditProperty() {
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/properties/${id}`)
+      // .then((res) => res.data)
+      //response.data.province accede al valor de esa propiedad
       .then((response) => {
         setProvince(response.data.province);
         setCity(response.data.city);
@@ -31,6 +33,7 @@ function EditProperty() {
         setBathrooms(response.data.bathrooms);
         setBedrooms(response.data.bedrooms);
       })
+
       .catch((error) => console.log(error));
   }, []);
 
