@@ -29,9 +29,14 @@ const DetailProperty = () => {
   };
 
   const handleClick = () => {
+    const visitDateString = visitDate.toString();
+    const date = visitDateString.slice(4, 15);
+    const time = visitDateString.slice(16, 21);
+    const dateTime = date.concat(" - ").concat(time).concat(" HS");
+    console.log(dateTime);
     axios
       .post("http://localhost:8000/api/visits/register", {
-        dateTime: visitDate,
+        dateTime: dateTime,
         prospectId: userId,
         propertyId: id,
       })
