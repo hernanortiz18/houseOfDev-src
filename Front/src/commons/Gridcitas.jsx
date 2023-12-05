@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 import Cardcitas from "./CardCitas";
 
 //GRID
-const Gridcitas = ({ user }) => {
+const Gridcitas = ({ cita }) => {
   return (
     <div className="">
       <div className="row">
-        {user.length &&
-          user.map((data, i) => (
+        {cita.length &&
+          cita.map((data, i) => (
             <div className="col-md-3 mb-3" key={i}>
               <div className="d-flex justify-content-center align-items-center">
                 <Cardcitas data={data} />

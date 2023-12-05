@@ -2,9 +2,14 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Gridcitas from "../commons/Gridcitas";
 import NavbarAdmin from "../commons/NavbarAdmin";
+import { useNavigate } from "react-router";
+import { useSelector } from "react-redux";
 
 function Admincitas() {
-  const [user, setCitas] = useState([]);
+  const [cita, setCitas] = useState([]);
+  const navigate = useNavigate();
+  const user = useSelector((state) => state.user);
+  const isAdmin = user.isAdmin;
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/visits`)
@@ -12,14 +17,21 @@ function Admincitas() {
       .then((users) => setCitas(users))
       .catch(() => "Cita no encontrada");
   }, []);
+
   return (
-    <div>
-      <NavbarAdmin />
-      <div>
-        <h1>Proximas Citas</h1>
-        <Gridcitas user={user} />
-      </div>
-    </div>
+    <>
+      {isAdmin ? (
+        <div>
+          <NavbarAdmin />
+          <div>
+            <h1>Proximas Citas</h1>
+            <Gridcitas cita={cita} />
+          </div>
+        </div>
+      ) : (
+        navigate("/contenido")
+      )}
+    </>
   );
 }
 //En el componente Admincitas la prop <Gridcitas user={user} />, se lo envia al componente Gridcitas que lo recibe con  const Gridcitas = ({ user })
