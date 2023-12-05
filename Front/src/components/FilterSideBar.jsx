@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useLocation, useSearchParams } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { setProperties } from "../redux/propeties";
 
@@ -63,7 +62,6 @@ const FilterSideBar = () => {
 
   return (
     <>
-      <ToastContainer />
       <div className="filter-side-bar">
         <button onClick={handleFilter}>Filter</button>
         {filter && (
@@ -126,7 +124,6 @@ const FilterSideBar = () => {
               type="text"
               name="price"
               placeholder="MAX"
-              value=""
               onChange={handlePrice}
             />
             <button type="submit">APLICAR FILTROS</button>
