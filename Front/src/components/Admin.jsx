@@ -20,7 +20,7 @@ const Admin = () => {
       .then((res) => res.data)
       .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
-  });
+  }, []);
 
   // useEffect(() => {
   //   axios

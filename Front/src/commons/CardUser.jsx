@@ -99,6 +99,17 @@ const CardUser = ({ user }) => {
 
   return (
     <div className="container-gral">
+      <h1>DATOS PERSONALES</h1>
+      <div className="user-icon-container imagenIcono">
+        <img
+          src={
+            "https://static.vecteezy.com/system/resources/previews/019/879/186/non_2x/user-icon-on-transparent-background-free-png.png"
+          }
+          class="card-img-top"
+          alt="..."
+        ></img>
+      </div>
+
       <div className="buttons-profile">
         <button onClick={handleClick} className="editButton">
           <i></i> EDITAR
@@ -112,7 +123,6 @@ const CardUser = ({ user }) => {
       {!edit && (
         <div className="profile-container">
           <div className="userProfile">
-            <h1>DATOS PERSONALES</h1>
             <div className="informacion">
               <p>NOMBRE COMPLETO</p>
               <h3>
