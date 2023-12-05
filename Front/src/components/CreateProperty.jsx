@@ -14,7 +14,7 @@ function CreateProperty() {
   const [number, setNumber] = useState("");
   const [onSale, setOnsale] = useState(false);
   const [price, setPrice] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
   const [squareMeters, setSquareMeters] = useState("");
   const [bathrooms, setBathrooms] = useState("");
   const [bedrooms, setBedrooms] = useState("");
@@ -38,7 +38,7 @@ function CreateProperty() {
     setPrice(e.target.value);
   };
   const handleImage = (e) => {
-    setImg(e.target.value);
+    setImg(e.target.files[0]);
   };
   const handleSquareMeters = (e) => {
     setSquareMeters(e.target.value);
@@ -52,6 +52,10 @@ function CreateProperty() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", img);
+
     axios
       .post(
         "http://localhost:8000/api/properties/register",
@@ -77,7 +81,7 @@ function CreateProperty() {
         setNumber("");
         setOnsale("");
         setPrice("");
-        setImg("");
+        setImg(null);
         setSquareMeters("");
         setBathrooms("");
         setBedrooms("");
@@ -123,48 +127,49 @@ function CreateProperty() {
                   className="form-control"
                 ></input>
 
-                {/* <input
-                      value={onSale}
-                      onChange={handleOnsale}
-                      placeholder="onSale"
-                      className="form-control"
-                    ></input> */}
-                <label className="label">Precio</label>
-                <input
-                  value={price}
-                  onChange={handlePrice}
-                  placeholder="Precio"
-                  className="form-control"
-                ></input>
-                <label className="label">Imagen</label>
-                <input
-                  value={img}
-                  onChange={handleImage}
-                  placeholder="Imagen"
-                  className="form-control"
-                ></input>
-                <label className="label">Metros Cuadrados</label>
-                <input
-                  value={squareMeters}
-                  onChange={handleSquareMeters}
-                  placeholder="Metros Cuadrados"
-                  className="form-control"
-                ></input>
-                <label className="label">Baños</label>
-                <input
-                  value={bathrooms}
-                  onChange={handleBathrooms}
-                  placeholder="Baños"
-                  className="form-control"
-                ></input>
-                <label className="label">Habitaciones</label>
-                <input
-                  value={bedrooms}
-                  onChange={handleBedrooms}
-                  placeholder="Habitaciones"
-                  className="form-control"
-                ></input>
-                <br />
+
+              {/* <input
+                value={onSale}
+                onChange={handleOnsale}
+                placeholder="onSale"
+                className="form-control"
+              ></input> */}
+              <label className="label">Precio</label>
+              <input
+                value={price}
+                onChange={handlePrice}
+                placeholder="Precio"
+                className="form-control"
+              ></input>
+              <label className="label">Imagen</label>
+              <input
+                type="file"
+                onChange={handleImage}
+                placeholder="Imagen"
+                className="form-control"
+              ></input>
+              <label className="label">Metros Cuadrados</label>
+              <input
+                value={squareMeters}
+                onChange={handleSquareMeters}
+                placeholder="Metros Cuadrados"
+                className="form-control"
+              ></input>
+              <label className="label">Baños</label>
+              <input
+                value={bathrooms}
+                onChange={handleBathrooms}
+                placeholder="Baños"
+                className="form-control"
+              ></input>
+              <label className="label">Habitaciones</label>
+              <input
+                value={bedrooms}
+                onChange={handleBedrooms}
+                placeholder="Habitaciones"
+                className="form-control"
+              ></input>
+              <br />
 
                 <div className="form-check-admin">
                   <div className="form-check-option">
