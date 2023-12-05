@@ -13,8 +13,8 @@ function Admincitas() {
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/visits`)
-      .then((res) => res.data)
-      .then((users) => setCitas(users))
+      // .then((res) => res.data)//tiene el mismo valor que user
+      .then((res) => setCitas(res.data))
       .catch(() => "Cita no encontrada");
   }, []);
 
