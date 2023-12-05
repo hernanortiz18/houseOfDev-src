@@ -6,9 +6,11 @@ import axios from "axios";
 import FilterSideBar from "./FilterSideBar";
 import "../styles/propertiesScreen.scss";
 import GridPropertiesUsers from "../commons/GridPropertiesUsers";
+import { useSelector } from "react-redux";
 
 const Property = ({ search, ubicacion }) => {
   const [property, setProperty] = useState({});
+  const filterProperty = useSelector((state) => state.properties);
 
   useEffect(() => {
     axios
@@ -29,10 +31,13 @@ const Property = ({ search, ubicacion }) => {
       <Navbar />
       <div className="properties-screen-container">
         <div className="filter-container">
-          <FilterSideBar property={property} />
+          <FilterSideBar />
         </div>
         <div className="grid-properties-container">
-          <GridPropertiesUsers property={property} />
+          <GridPropertiesUsers
+            filterProperty={filterProperty}
+            property={property}
+          />
         </div>
       </div>
     </>

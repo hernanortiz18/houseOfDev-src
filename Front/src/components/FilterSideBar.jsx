@@ -1,19 +1,30 @@
 import axios from "axios";
-import { useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useSearchParams } from "react-router-dom";
+import { toast, ToastContainer } from "react-toastify";
+import { useDispatch, useSelector } from "react-redux";
+import { setProperties } from "../redux/propeties";
 
-const FilterSideBar = ({ property }) => {
+const FilterSideBar = () => {
+  const dispatch = useDispatch();
+  const location = useLocation();
   const uniqueValues = {};
+  const [property, setProperty] = useState([]);
+  const propertyFilter = useSelector((state) => state.properties);
+  const [filter, setFilter] = useState(false);
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  useEffect(() => {
+    axios
+      .get("http://localhost:8000/api/properties/all")
+      .then((propertyResult) => setProperty(propertyResult.data));
+  }, []);
 
   if (property.length > 0) {
-    // Iterar sobre las propiedades para obtener valores únicos por cada propiedad
     ["province", "city", "bedrooms"].forEach((prop) => {
       uniqueValues[prop] = [...new Set(property.map((item) => item[prop]))];
     });
   }
-
-  const [filter, setFilter] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams();
 
   const handleFilter = () => {
     setFilter(!filter);
@@ -44,14 +55,15 @@ const FilterSideBar = ({ property }) => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefautl();
+    e.preventDefault();
     axios
       .get(`http://localhost:8000/api/properties?${searchParams}`)
-      .then(() => console.log("SALIÓ EL SUBMIT DE FILTER"));
+      .then((res) => dispatch(setProperties(res.data)));
   };
 
   return (
     <>
+      <ToastContainer />
       <div className="filter-side-bar">
         <button onClick={handleFilter}>Filter</button>
         {filter && (
