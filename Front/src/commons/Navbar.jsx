@@ -91,14 +91,17 @@ function Navbar() {
                   Contacto
                 </Link>
               </li>
-              <li className="nav-item">
-                <Link to={"/register"} className="nav-link">
-                  Registrate
-                </Link>
-              </li>
+              {user.id ? (
+                <p>Welcome {user.name}!</p>
+              ) : (
+                <li className="nav-item">
+                  <Link to={"/register"} className="nav-link">
+                    Registrate
+                  </Link>
+                </li>
+              )}
               {user.name ? (
                 <li>
-                  <p>Welcome {user.name}!</p>
                   <button
                     onClick={handleLogOut}
                     className="btn btn-danger mx-2"

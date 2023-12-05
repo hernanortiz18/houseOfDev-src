@@ -6,6 +6,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { ToastContainer, toast } from "react-toastify";
 
 function Cardcitas({ data }) {
   console.log(data);
@@ -42,8 +43,22 @@ function Cardcitas({ data }) {
   //     .catch(() => "No hay citas");
   // });
 
+  const dateConfirm = () => {
+    axios
+      .put(
+        "http://localhost:8000/api/visits/dateConfirm",
+        {
+          to: user.email,
+        },
+        { returning: true }
+      )
+      .then((result) => toast.success("LA CITA FUE CONFIRMADA"))
+      .catch((err) => toast.error("HA OCURRIDO UN ERROR CON SU SOLICITUD"));
+  };
+
   return (
     <div className="card" style={{ width: "18rem" }}>
+      <ToastContainer />
       <img src={property.img} class="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{user.name}</h5>
@@ -55,7 +70,9 @@ function Cardcitas({ data }) {
         <li className="list-group-item">Email: {user.email}</li>
       </ul>
       <div className="card-body">
-        <button className="btn btn-primary mx-2 mt-2">Aceptar cita</button>
+        <button className="btn btn-primary mx-2 mt-2" onClick={dateConfirm}>
+          Aceptar cita
+        </button>
         <button className="btn btn-danger mx-2 mt-2">Cancelar cita</button>
       </div>
     </div>
