@@ -49,32 +49,31 @@ function CreateProperty() {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append("file", img);
+    formData.append("img", img);
+    formData.append("province", province);
+    formData.append("city", city);
+    formData.append("number", number);
+    formData.append("onSale", onSale);
+    formData.append("price", price);
+    formData.append("address", address);
+    formData.append("squareMeters", squareMeters);
+    formData.append("bedrooms", bedrooms);
+    formData.append("bathrooms", bathrooms);
 
     axios
-      .post(
-        "http://localhost:8000/api/properties/register",
-        {
-          province: province,
-          city: city,
-          address: address,
-          number: number,
-          onSale: onSale,
-          price: price,
-          img: img,
-          squareMeters: squareMeters,
-          bathrooms: bathrooms,
-          bedrooms: bedrooms,
+      .post("http://localhost:8000/api/properties/register", formData, {
+        withCredentials: true,
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-        { withCredentials: true }
-      )
+      })
       .then((res) => res.data)
       .then(() => {
         setProvince("");
         setCity("");
         setAddress("");
         setNumber("");
-        setOnsale("");
+        setOnsale(false);
         setPrice("");
         setImg(null);
         setSquareMeters("");
