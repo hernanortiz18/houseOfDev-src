@@ -1,8 +1,13 @@
 import axios from "axios";
 import React, { useState } from "react";
 import NavbarAdmin from "../commons/NavbarAdmin";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 function CreateProperty() {
+  const user = useSelector((state) => state.user);
+  const isAdmin = user.isAdmin;
+  const navigate = useNavigate();
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
   const [address, setAddress] = useState("");
@@ -85,41 +90,43 @@ function CreateProperty() {
 
   return (
     <>
-      <NavbarAdmin />
-      <div class="container text-center">
-        <div class="row">
-          <div class="col">
-            <form onSubmit={handleSubmit} className="row g-3">
-              <h1 className="titulo">Nueva Propiedad</h1>
-              <label className="label">Provincia</label>
-              <input
-                value={province}
-                onChange={handleProvince}
-                placeholder="Provincia"
-                className="form-control"
-              ></input>
+      {isAdmin ? (
+        <div className="container text-center">
+          <NavbarAdmin />
+          <div className="row">
+            <div className="col">
+              <form onSubmit={handleSubmit} className="row g-3">
+                <h1 className="titulo">Nueva Propiedad</h1>
+                <label className="label">Provincia</label>
+                <input
+                  value={province}
+                  onChange={handleProvince}
+                  placeholder="Provincia"
+                  className="form-control"
+                ></input>
 
-              <label className="label">Ciudad</label>
-              <input
-                value={city}
-                onChange={handleCity}
-                placeholder="Ciudad"
-                className="form-control"
-              ></input>
-              <label className="label">Dirección</label>
-              <input
-                value={address}
-                onChange={handleAddress}
-                placeholder="Dirección"
-                className="form-control"
-              ></input>
-              <label className="label">Numero de dirreción</label>
-              <input
-                value={number}
-                onChange={handleNumber}
-                placeholder="Numero de dirreción"
-                className="form-control"
-              ></input>
+                <label className="label">Ciudad</label>
+                <input
+                  value={city}
+                  onChange={handleCity}
+                  placeholder="Ciudad"
+                  className="form-control"
+                ></input>
+                <label className="label">Dirección</label>
+                <input
+                  value={address}
+                  onChange={handleAddress}
+                  placeholder="Dirección"
+                  className="form-control"
+                ></input>
+                <label className="label">Numero de dirreción</label>
+                <input
+                  value={number}
+                  onChange={handleNumber}
+                  placeholder="Numero de dirreción"
+                  className="form-control"
+                ></input>
+
 
               {/* <input
                 value={onSale}
@@ -164,44 +171,47 @@ function CreateProperty() {
               ></input>
               <br />
 
-              <div className="form-check-admin">
-                <div className="form-check-option">
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    value="Alquiler"
-                    onChange={handleOnsale}
-                    // onChange={handleOnsale}
-                    placeholder="Alquiler"
-                    id="Alquiler"
-                    // checked={onSale === "Alquiler"}
-                    checked={!onSale}
-                  />
-                  <label className="form-check-label" htmlFor="Alquiler">
-                    Alquiler
-                  </label>
-                  <input
-                    className="form-check-input"
-                    type="radio"
-                    value="Comprar"
-                    onChange={handleOnsale}
-                    // onChange={handleOnsale}
-                    placeholder="Comprar"
-                    id="Comprar"
-                    checked={onSale}
-                  />
-                  <label className="form-check-label" htmlFor="Comprar">
-                    Comprar
-                  </label>
+                <div className="form-check-admin">
+                  <div className="form-check-option">
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      value="Alquiler"
+                      onChange={handleOnsale}
+                      // onChange={handleOnsale}
+                      placeholder="Alquiler"
+                      id="Alquiler"
+                      // checked={onSale === "Alquiler"}
+                      checked={!onSale}
+                    />
+                    <label className="form-check-label" htmlFor="Alquiler">
+                      Alquiler
+                    </label>
+                    <input
+                      className="form-check-input"
+                      type="radio"
+                      value="Comprar"
+                      onChange={handleOnsale}
+                      // onChange={handleOnsale}
+                      placeholder="Comprar"
+                      id="Comprar"
+                      checked={onSale}
+                    />
+                    <label className="form-check-label" htmlFor="Comprar">
+                      Comprar
+                    </label>
+                  </div>
                 </div>
-              </div>
-              <button type="submit" className="btn btn-success registrar">
-                Registrar Nueva Propiedad
-              </button>
-            </form>
+                <button type="submit" className="btn btn-success registrar">
+                  Registrar Nueva Propiedad
+                </button>
+              </form>
+            </div>
           </div>
         </div>
-      </div>
+      ) : (
+        navigate("/contenido")
+      )}
     </>
   );
 }
