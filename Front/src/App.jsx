@@ -14,7 +14,7 @@ import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 import Alquiler from "./components/Alquiler";
 import Venta from "./components/Venta";
-
+import { ToastContainer } from "react-toastify";
 import DetailProperty from "./components/DetailProperty";
 
 import Admincitas from "./components/Admincitas";
@@ -36,6 +36,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <ToastContainer />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
