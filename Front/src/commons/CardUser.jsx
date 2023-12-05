@@ -73,7 +73,6 @@ const CardUser = ({ user }) => {
         },
       })
       .then((result) => {
-        console.log("SALIÓ");
         if (!result) return "contraseña incorrecta";
         else {
           axios
@@ -83,10 +82,15 @@ const CardUser = ({ user }) => {
                 password: password.nuevaPassworrd,
               }
             )
-            .then((res) => res.data)
             .then(() => {
               axios
-                .post("http://localhost:8000/api/users/logout")
+                .post(
+                  "http://localhost:8000/api/users/logout",
+                  {
+                    name: user,
+                  },
+                  { withCredentials: true }
+                )
                 .then(() => navigate("/login"));
             });
         }

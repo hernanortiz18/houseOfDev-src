@@ -62,7 +62,7 @@ function Cardcitas({ data }) {
       <img src={property.img} class="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{user.name}</h5>
-        {/* <p className="card-text">{cita.dateTime}date</p> */}
+        <p className="card-text">{data.dateTime}date</p>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">User :{user.lastName}</li>
