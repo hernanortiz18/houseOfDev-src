@@ -55,6 +55,15 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {user.isAdmin ? (
+                <li className="nav-item">
+                  <Link to={"/admin"} className="nav-link admin-nav-option">
+                    Vista Admin
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               <li className="nav-item">
                 <Link to={"/comprar/all"} className="nav-link">
                   En Venta
@@ -66,31 +75,25 @@ function Navbar() {
                 </Link>
               </li>
 
-              <li className="nav-item">
-                <Link to={"/agenda"} className="nav-link">
-                  Agenda Tu Visita
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/servicios"} className="nav-link">
-                  Nuestros Servicios
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/perfil"} className="nav-link">
-                  Mi perfil
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/nosotros"} className="nav-link">
-                  Nosotros
-                </Link>
-              </li>
-              <li className="nav-item">
-                <Link to={"/contacto"} className="nav-link">
-                  Contacto
-                </Link>
-              </li>
+              {user.id ? (
+                <li className="nav-item">
+                  <Link to={"/perfil"} className="nav-link">
+                    Mi perfil
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
+
+              {user.id ? (
+                <li className="nav-item">
+                  <Link to={"/favorites"} className="nav-link">
+                    Mis Favoritos
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               {user.id ? (
                 <p>Welcome {user.name}!</p>
               ) : (

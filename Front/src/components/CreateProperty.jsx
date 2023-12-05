@@ -9,7 +9,7 @@ function CreateProperty() {
   const [number, setNumber] = useState("");
   const [onSale, setOnsale] = useState(false);
   const [price, setPrice] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
   const [squareMeters, setSquareMeters] = useState("");
   const [bathrooms, setBathrooms] = useState("");
   const [bedrooms, setBedrooms] = useState("");
@@ -33,7 +33,7 @@ function CreateProperty() {
     setPrice(e.target.value);
   };
   const handleImage = (e) => {
-    setImg(e.target.value);
+    setImg(e.target.files[0]);
   };
   const handleSquareMeters = (e) => {
     setSquareMeters(e.target.value);
@@ -47,6 +47,10 @@ function CreateProperty() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    const formData = new FormData();
+    formData.append("file", img);
+
     axios
       .post(
         "http://localhost:8000/api/properties/register",
@@ -72,7 +76,7 @@ function CreateProperty() {
         setNumber("");
         setOnsale("");
         setPrice("");
-        setImg("");
+        setImg(null);
         setSquareMeters("");
         setBathrooms("");
         setBedrooms("");
@@ -132,7 +136,7 @@ function CreateProperty() {
               ></input>
               <label className="label">Imagen</label>
               <input
-                value={img}
+                type="file"
                 onChange={handleImage}
                 placeholder="Imagen"
                 className="form-control"
