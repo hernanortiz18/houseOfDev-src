@@ -25,7 +25,7 @@ function CardUserProperty({ data }) {
         propertyId: propId,
       })
       .then((result) => {
-        if (result === true) toast.success("AGREGADA A FAVORITOS");
+        if (result) toast.success("AGREGADA A FAVORITOS");
         else {
           toast.warn("ESTA PROPIEDAD YA SE ENCUENTRA EN FAVORITOS");
         }
