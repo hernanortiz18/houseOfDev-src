@@ -13,15 +13,14 @@ import Contenido from "./components/Contenido";
 import Profile from "./components/Profile";
 import Alquiler from "./components/Alquiler";
 import Venta from "./components/Venta";
-
+import Favorites from "./components/Favorites";
 import DetailProperty from "./components/DetailProperty";
-
 import Admincitas from "./components/Admincitas";
 import CreateProperty from "./components/CreateProperty";
 import Admin from "./components/Admin";
 import Usersadmin from "./components/Usersadmin";
 import EditProperty from "./commons/EditProperty";
-import UserIdentification from "./components/userIdentification";
+import UserIdentification from "./components/UserIdentification";
 
 function App() {
   const dispatch = useDispatch();
@@ -53,6 +52,7 @@ function App() {
           <Route path="/usuariosadmin" element={<Usersadmin />} />
           <Route path="/crearPropiedades" element={<CreateProperty />} />
           <Route path="/reservas" element={<Admincitas />} />
+          <Route path="/favorites" element={<Favorites />} />
         </Routes>
       </BrowserRouter>
     </>

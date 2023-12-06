@@ -88,7 +88,7 @@ function Navbar() {
 
               {user.id ? (
                 <li className="nav-item">
-                  <Link to={"/favorites"} className="nav-link">
+                  <Link to={`/favorites`} className="nav-link">
                     Mis Favoritos
                   </Link>
                 </li>
