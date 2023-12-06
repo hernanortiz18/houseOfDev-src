@@ -73,7 +73,6 @@ function Cardcitas({ data }) {
         <button className="btn btn-primary mx-2 mt-2" onClick={dateConfirm}>
           Aceptar cita
         </button>
-        <button className="btn btn-danger mx-2 mt-2">Cancelar cita</button>
       </div>
     </div>
   );
