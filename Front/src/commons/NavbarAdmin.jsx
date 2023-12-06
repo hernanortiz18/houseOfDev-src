@@ -4,8 +4,11 @@ import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import { Link } from "react-router-dom";
 import "../styles/navbarAdmin.scss";
 import icono from "../assets/img/Group 177.png";
+import { useSelector } from "react-redux";
 
 function Navbar() {
+  const user = useSelector((state) => state.user);
+
   return (
     <>
       <nav className="navbar navbar-expand-lg bg-admin fixed-top">
@@ -27,6 +30,15 @@ function Navbar() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+              {user.isAdmin ? (
+                <li className="nav-item">
+                  <Link to={"/contenido"} className="nav-link user-nav-option">
+                    Vista Usuario
+                  </Link>
+                </li>
+              ) : (
+                <></>
+              )}
               <li className="nav-item">
                 <Link to={"/crearPropiedades"} className="nav-link">
                   Crear propiedades

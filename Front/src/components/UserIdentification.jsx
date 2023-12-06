@@ -8,16 +8,16 @@ import { useSelector } from "react-redux";
 
 function UserIdentification() {
   const { id } = useParams();
-  const [user, setUser] = useState([]);
-  const [admin, setAdmin] = useState(user.isAdmin);
+  const [user, setUser] = useState({});
+  // const [admin, setAdmin] = useState(user.isAdmin);
   const userLog = useSelector((state) => state.user);
   const superAdmin = userLog.superAdmin;
 
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/users/${id}`)
-      .then((res) => res.data)
-      .then((users) => setUser(users))
+      .then((res) => setUser(res.data))
+      // .then((users) => setUser(users))
       .catch(() => "Detalle del usuario no encontrado");
   }, []);
 
@@ -31,7 +31,7 @@ function UserIdentification() {
 
       .then((res) => res.data)
       .then(() => setUser(user))
-      .then(() => setAdmin(admin))
+      // .then(() => setAdmin(useadmin))
       .catch((error) => console.log("error nuevo administrador"));
   };
 
@@ -61,7 +61,7 @@ function UserIdentification() {
 
             {superAdmin ? (
               <button onClick={handleAdmin}>
-                {!admin ? (
+                {!user.isAdmin ? (
                   <span> nuevo administrador</span>
                 ) : (
                   <span>quitar admin</span>

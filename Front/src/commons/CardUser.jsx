@@ -1,11 +1,13 @@
 import { useContext, useState } from "react";
 import axios from "axios";
 import "../styles/profile.scss";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { setUser } from "../redux/user";
 
 const CardUser = ({ user }) => {
+  const userLog = useSelector((state) => state.user);
+
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { email } = user;
@@ -79,7 +81,7 @@ const CardUser = ({ user }) => {
             .put(
               `http://localhost:8000/api/users/updatePass/?userEmail=${user.email}`,
               {
-                password: password.nuevaPassworrd,
+                password: password.nuevaPassword,
               }
             )
             .then(() => {
@@ -91,7 +93,8 @@ const CardUser = ({ user }) => {
                   },
                   { withCredentials: true }
                 )
-                .then(() => navigate("/login"));
+                .then(() => navigate("/login"))
+                .then(() => dispatch(setUser("")));
             });
         }
       });
@@ -150,7 +153,7 @@ const CardUser = ({ user }) => {
                 placeholder="NAME"
                 onChange={handleChange}
               />
-
+              <br />
               <input
                 type="text"
                 value={userData.lastName}
