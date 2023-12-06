@@ -4,10 +4,15 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import NavbarAdmin from "../commons/NavbarAdmin";
+import { useSelector } from "react-redux";
 
 function UserIdentification() {
   const { id } = useParams();
   const [user, setUser] = useState([]);
+  const [admin, setAdmin] = useState(user.isAdmin);
+  const userLog = useSelector((state) => state.user);
+  const superAdmin = userLog.superAdmin;
+
   useEffect(() => {
     axios
       .get(`http://localhost:8000/api/users/${id}`)
@@ -15,6 +20,20 @@ function UserIdentification() {
       .then((users) => setUser(users))
       .catch(() => "Detalle del usuario no encontrado");
   }, []);
+
+  const handleAdmin = () => {
+    axios
+      .put(
+        `http://localhost:8000/api/users/adminupdate/${id}`,
+        { isAdmin: !user.isAdmin },
+        { withCredentials: true }
+      )
+
+      .then((res) => res.data)
+      .then(() => setUser(user))
+      .then(() => setAdmin(admin))
+      .catch((error) => console.log("error nuevo administrador"));
+  };
 
   return (
     <>
@@ -39,6 +58,18 @@ function UserIdentification() {
             <li className="list-group-item">Apelido: {user.lastName} </li>
             <li className="list-group-item">E-mail: {user.email}</li>
             <li className="list-group-item">Telefono: {user.phone}</li>
+
+            {superAdmin ? (
+              <button onClick={handleAdmin}>
+                {!admin ? (
+                  <span> nuevo administrador</span>
+                ) : (
+                  <span>quitar admin</span>
+                )}
+              </button>
+            ) : (
+              <></>
+            )}
           </ul>
         </div>
       </div>
