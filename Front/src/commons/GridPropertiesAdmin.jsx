@@ -13,9 +13,9 @@ const GridPropertiesAdmin = ({ property }) => {
           property.map((data, i) => (
             <div className="col-md-3 mb-3" key={i}>
               <div className="d-flex justify-content-center align-items-center">
-                <Link to={`propiedades/${data.id}`}>
-                  <CardAdminProperty data={data} />
-                </Link>
+                {/* <Link to={`propiedades/${data.id}`}> */}
+                <CardAdminProperty data={data} />
+                {/* </Link> */}
               </div>
             </div>
           ))}
