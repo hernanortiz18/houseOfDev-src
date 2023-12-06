@@ -225,5 +225,5 @@ function EditProperty() {
     </>
   );
 }
-console.log("holaaa");
+
 export default EditProperty;

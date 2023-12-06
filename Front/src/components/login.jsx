@@ -5,12 +5,13 @@ import "../styles/login.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Navbar from "../commons/Navbar";
 import { useNavigate } from "react-router-dom";
-import { useDispatch } from "react-redux";
-import { setUser } from "../redux/user";
+import { useDispatch, useSelector } from "react-redux";
+import { setUser, userReducer } from "../redux/user";
 
 function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userLog = useSelector((state) => state.user);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -43,42 +44,48 @@ function Login() {
 
   return (
     <>
-      <Navbar />
-      <div className="estiloLogin">
-        <form onSubmit={handleLogin}>
-          <input
-            value={email}
-            onChange={handleChangeEmail}
-            placeholder="EMAIL"
-            className="form-control"
-            id="floatingInput"
-            type="email"
-          ></input>
-          <br />
+      {userLog.id ? (
+        <>{navigate("/contenido")}</>
+      ) : (
+        <>
+          <Navbar />
+          <div className="estiloLogin">
+            <form onSubmit={handleLogin}>
+              <input
+                value={email}
+                onChange={handleChangeEmail}
+                placeholder="EMAIL"
+                className="form-control"
+                id="floatingInput"
+                type="email"
+              ></input>
+              <br />
 
-          <input
-            value={password}
-            onChange={handleChangePassword}
-            type="password"
-            placeholder="PASSWORD"
-            className="form-control"
-            id="floatingPassword"
-          ></input>
+              <input
+                value={password}
+                onChange={handleChangePassword}
+                type="password"
+                placeholder="PASSWORD"
+                className="form-control"
+                id="floatingPassword"
+              ></input>
 
-          <br />
-          <Link to={"/"}>
-            <p>¿Olvidaste tu contraseña?</p>
-          </Link>
+              <br />
+              <Link to={"/"}>
+                <p>¿Olvidaste tu contraseña?</p>
+              </Link>
 
-          <Link to="/register">
-            <button className="btn btn-primary mx-2">REGISTER</button>
-          </Link>
+              <Link to="/register">
+                <button className="btn btn-primary mx-2">REGISTER</button>
+              </Link>
 
-          <button type="submit" className="btn btn-success mx-2">
-            LOG IN
-          </button>
-        </form>
-      </div>
+              <button type="submit" className="btn btn-success mx-2">
+                LOG IN
+              </button>
+            </form>
+          </div>
+        </>
+      )}
     </>
   );
 }

@@ -3,11 +3,12 @@ import Navbar from "../commons/Navbar";
 import axios from "axios";
 import CardUser from "../commons/CardUser";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
 
 const Profile = () => {
   const [userLogin, setUserLogin] = useState({});
-
   const user = useSelector((state) => state.user);
+  const navigate = useNavigate();
   const { email } = user;
 
   useEffect(() => {
@@ -24,8 +25,14 @@ const Profile = () => {
 
   return (
     <>
-      <Navbar />
-      <CardUser user={userLogin} />
+      {user.id ? (
+        <>{navigate("/contenido")}</>
+      ) : (
+        <>
+          <Navbar />
+          <CardUser user={userLogin} />
+        </>
+      )}
     </>
   );
 };

@@ -8,9 +8,11 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 import Navbar from "../commons/Navbar";
+import { useSelector } from "react-redux";
 
 const Register = () => {
   const navigate = useNavigate();
+  const userLog = useSelector((state) => state.user);
 
   const [registerData, setRegisterData] = useState({
     name: "",
@@ -56,75 +58,82 @@ const Register = () => {
 
   return (
     <>
-      <Navbar />
-      <div className="fondo">
-        <div className="register">
-          <ToastContainer />;
-          <form onSubmit={handleSubmit} className="formRegister">
-            <input
-              value={registerData.name}
-              type="text"
-              name="name"
-              placeholder="NAME"
-              onChange={handleChange}
-              required
-            />
-            <br />
-            <input
-              value={registerData.lastName}
-              type="text"
-              name="lastName"
-              placeholder="LAST NAME"
-              onChange={handleChange}
-              required
-            />
-            <br />
-            <input
-              value={registerData.phone}
-              type="text"
-              name="phone"
-              placeholder="PHONE"
-              onChange={handleChange}
-              required
-            />
-            <br />
-            <input
-              value={registerData.email}
-              type="email"
-              name="email"
-              placeholder="E-MAIL"
-              onChange={handleChange}
-              required
-            />
-            <br />
-            <input
-              value={registerData.password}
-              type="password"
-              name="password"
-              placeholder="PASSWORD"
-              onChange={handleChange}
-              required
-            />
-            <br />
-            <input
-              value={registerData.passwordRepeat}
-              type="password"
-              name="passwordRepeat"
-              placeholder="REPEAT PASSWORD"
-              onChange={handleChange}
-              required
-            />
-            <br />
+      {userLog.id ? (
+        <>{navigate("/contenido")}</>
+      ) : (
+        <>
+          {" "}
+          <Navbar />
+          <div className="fondo">
+            <div className="register">
+              <ToastContainer />;
+              <form onSubmit={handleSubmit} className="formRegister">
+                <input
+                  value={registerData.name}
+                  type="text"
+                  name="name"
+                  placeholder="NAME"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
+                <input
+                  value={registerData.lastName}
+                  type="text"
+                  name="lastName"
+                  placeholder="LAST NAME"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
+                <input
+                  value={registerData.phone}
+                  type="text"
+                  name="phone"
+                  placeholder="PHONE"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
+                <input
+                  value={registerData.email}
+                  type="email"
+                  name="email"
+                  placeholder="E-MAIL"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
+                <input
+                  value={registerData.password}
+                  type="password"
+                  name="password"
+                  placeholder="PASSWORD"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
+                <input
+                  value={registerData.passwordRepeat}
+                  type="password"
+                  name="passwordRepeat"
+                  placeholder="REPEAT PASSWORD"
+                  onChange={handleChange}
+                  required
+                />
+                <br />
 
-            <button className="btn btn-primary mx-2" type="submit">
-              REGISTER
-            </button>
-            <Link to="/login">
-              <button className="btn btn-success mx-2">LOG IN</button>
-            </Link>
-          </form>
-        </div>
-      </div>
+                <button className="btn btn-primary mx-2" type="submit">
+                  REGISTER
+                </button>
+                <Link to="/login">
+                  <button className="btn btn-success mx-2">LOG IN</button>
+                </Link>
+              </form>
+            </div>
+          </div>
+        </>
+      )}
     </>
   );
 };
