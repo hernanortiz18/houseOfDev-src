@@ -17,7 +17,6 @@ function Alquiler() {
           <Carrusel />
           <Property search={search} ubicacion={ubicacion} />
         </div>
-
       </div>
     </>
   );

@@ -25,6 +25,7 @@ function Navbar() {
       )
       .then((res) => res.data)
       .then(() => navigate("/contenido"));
+    dispatch(setUser(""));
   };
 
   const handleLoginClick = () => {
