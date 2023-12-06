@@ -9,8 +9,6 @@ import { useParams } from "react-router";
 import { ToastContainer, toast } from "react-toastify";
 
 function Cardcitas({ data }) {
-  console.log(data);
-
   const [user, setUser] = useState([]);
   const userId = data.prospectId;
 
@@ -62,7 +60,7 @@ function Cardcitas({ data }) {
       <img src={property.img} class="card-img-top" alt="..."></img>
       <div className="card-body">
         <h5 className="card-title">{user.name}</h5>
-        <p className="card-text">{data.dateTime}date</p>
+        <p className="card-text">{data.dateTime}</p>
       </div>
       <ul className="list-group list-group-flush">
         <li className="list-group-item">User :{user.lastName}</li>
