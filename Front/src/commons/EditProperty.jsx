@@ -1,9 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import NavbarAdmin from "../commons/NavbarAdmin";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 
 function EditProperty() {
+  // const navigate = useNavigate();
   const { id } = useParams();
   const [province, setProvince] = useState("");
   const [city, setCity] = useState("");
@@ -11,7 +12,7 @@ function EditProperty() {
   const [number, setNumber] = useState("");
   const [onSale, setOnsale] = useState(false);
   const [price, setPrice] = useState("");
-  const [img, setImg] = useState("");
+  const [img, setImg] = useState(null);
   const [squareMeters, setSquareMeters] = useState("");
   const [bathrooms, setBathrooms] = useState("");
   const [bedrooms, setBedrooms] = useState("");
@@ -26,9 +27,9 @@ function EditProperty() {
         setCity(response.data.city);
         setAddress(response.data.address);
         setNumber(response.data.number);
-        setOnsale(response.data.onsale);
+        setOnsale(response.data.onsale || false);
         setPrice(response.data.price);
-        setImg(response.data.img);
+        setImg(response.data.img || null);
         setSquareMeters(response.data.squareMeters);
         setBathrooms(response.data.bathrooms);
         setBedrooms(response.data.bedrooms);
@@ -56,7 +57,7 @@ function EditProperty() {
     setPrice(e.target.value);
   };
   const handleImage = (e) => {
-    setImg(e.target.value);
+    setImg(URL.createObjectURL(e.target.files[0]));
   };
   const handleSquareMeters = (e) => {
     setSquareMeters(e.target.value);
@@ -70,22 +71,32 @@ function EditProperty() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
+    //Lo nuevo
+
+    const formData = new FormData();
+    formData.append("img", img);
+    formData.append("province", province);
+    formData.append("city", city);
+    formData.append("number", number);
+    formData.append("onSale", onSale);
+    formData.append("price", price);
+    formData.append("address", address);
+    formData.append("squareMeters", squareMeters);
+    formData.append("bedrooms", bedrooms);
+    formData.append("bathrooms", bathrooms);
+
     axios
       .put(
         `http://localhost:8000/api/properties/update/${id}`,
+        formData,
+
         {
-          province: province,
-          city: city,
-          address: address,
-          number: number,
-          onSale: onSale,
-          price: price,
-          img: img,
-          squareMeters: squareMeters,
-          bathrooms: bathrooms,
-          bedrooms: bedrooms,
-        },
-        { withCredentials: true }
+          withCredentials: true,
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       )
       .then((res) => res.data)
       .then(() => {
@@ -93,22 +104,23 @@ function EditProperty() {
         setCity("");
         setAddress("");
         setNumber("");
-        setOnsale("");
+        setOnsale(false);
         setPrice("");
-        setImg("");
+        setImg(null);
         setSquareMeters("");
         setBathrooms("");
         setBedrooms("");
-      })
-      .then(() => navigate("/admin"));
+      });
   };
+
+  // .then(() => navigate("/admin"));
 
   return (
     <>
-      <div class="container text-center">
+      <div className="container text-center">
         <NavbarAdmin />
-        <div class="row">
-          <div class="col">
+        <div className="row">
+          <div className="col">
             <form onSubmit={handleSubmit} className="row g-3">
               <h1 className="titulo">Nueva Propiedad</h1>
               <label className="label">Provincia</label>
@@ -156,11 +168,19 @@ function EditProperty() {
               ></input>
               <label className="label">Imagen</label>
               <input
-                value={img}
+                type="file"
+                // value={img}
                 onChange={handleImage}
                 placeholder="Imagen"
                 className="form-control"
               ></input>
+              {/* {img && (
+                <img
+                  src={img}
+                  alt="Property"
+                  style={{ maxWidth: "50%", marginTop: "5px" }}
+                />
+              )} */}
               <label className="label">Metros Cuadrados</label>
               <input
                 value={squareMeters}
@@ -225,5 +245,16 @@ function EditProperty() {
     </>
   );
 }
-
 export default EditProperty;
+// {
+//   province: province,
+//   city: city,
+//   address: address,
+//   number: number,
+//   onSale: onSale,
+//   price: price,
+//   img: img,
+//   squareMeters: squareMeters,
+//   bathrooms: bathrooms,
+//   bedrooms: bedrooms,
+// },
