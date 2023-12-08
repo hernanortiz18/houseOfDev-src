@@ -20,7 +20,7 @@ const Admin = () => {
       .then((res) => res.data)
       .then((properties) => setProperty(properties))
       .catch(() => "Propiedad no encontrada");
-  }, []);
+  }, [property]);
 
   // useEffect(() => {
   //   axios
@@ -38,7 +38,7 @@ const Admin = () => {
           <GridPropertiesAdmin property={property} />
         </div>
       ) : (
-        navigate("/contenido")
+        <> {navigate("/contenido")}</>
       )}
     </>
   );

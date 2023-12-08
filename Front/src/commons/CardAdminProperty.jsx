@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/AdminProperties.scss";
 import "bootstrap-icons/font/bootstrap-icons.css";
@@ -7,8 +7,11 @@ import { Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import ConfirmModal from "./ConfirmModal";
+import { ToastContainer, toast } from "react-toastify";
 
-function CardAdminProperty({ data, onDelete }) {
+function CardAdminProperty({ data }) {
+  const [showConfirmModal, setShowConfirmModal] = useState(false);
   const user = useSelector((state) => state.user);
   const isAdmin = user.isAdmin;
   const navigate = useNavigate();
@@ -17,19 +20,29 @@ function CardAdminProperty({ data, onDelete }) {
     e.preventDefault();
     axios
       .delete(`http://localhost:8000/api/properties/admin/${data.id}`)
+      .then(navigate("/admin"))
       .then(() => {
-        onDelete(data.id);
-        // navigate("http://localhost:8000/api/properties/admin/");
+        setShowConfirmModal(false);
       })
-      .catch((error) => {
-        console.log(error);
-      });
+      .then(() => {
+        toast.success("SE HA ELIMINADO LA PROPIEDAD");
+      })
+
+      .catch((error) => toast.error("NO SE HA PODIDO ELIMINAR LA PROPIEDAD"));
+  };
+
+  const confirmarEliminacion = () => {
+    setShowConfirmModal(true);
+  };
+  const handleClose = () => {
+    setShowConfirmModal(false);
   };
 
   return (
     <>
       {isAdmin ? (
         <div className="contenedorAdmin">
+          <ToastContainer />
           <div className="card mb-3" style={{ maxWidth: "540px" }}>
             <div className="row g-0">
               <div className="col-md-5">
@@ -79,17 +92,27 @@ function CardAdminProperty({ data, onDelete }) {
                         VER MÁS
                       </button>
                     </Link>
-                    <Button variant="outline-primary" onClick={handleDelete}>
+                    <Button
+                      variant="outline-primary"
+                      onClick={confirmarEliminacion}
+                    >
                       <i className="fa-solid fa-trash-can"></i>
                     </Button>
                   </div>
+                  {showConfirmModal && (
+                    <ConfirmModal
+                      show={showConfirmModal}
+                      onHide={handleClose}
+                      onConfirm={handleDelete}
+                    />
+                  )}
                 </div>
               </div>
             </div>
           </div>
         </div>
       ) : (
-        navigate("/contenido")
+        <> {navigate("/contenido")} </>
       )}
     </>
   );

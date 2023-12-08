@@ -26,12 +26,12 @@ const Profile = () => {
   return (
     <>
       {user.id ? (
-        <>{navigate("/contenido")}</>
-      ) : (
         <>
           <Navbar />
           <CardUser user={userLogin} />
         </>
+      ) : (
+        <>{navigate("/contenido")}</>
       )}
     </>
   );
